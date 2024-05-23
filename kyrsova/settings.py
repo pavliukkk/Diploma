@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from django.utils.translation import gettext_lazy as _
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,6 +27,8 @@ SECRET_KEY = 'django-insecure-o%ql_ulfpek&i%#&)t^a+y9h@y#o^)#c$so5!x57ggp4g7=q_&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
+DATABASE_URL="mysql://root:kKMtYqiuPzmypLCpWKhXdciMgeDUaRhU@viaduct.proxy.rlwy.net:51971/railway"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -88,17 +91,7 @@ WSGI_APPLICATION = 'kyrsova.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'django_db', 
-        'USER': 'root', 
-        'PASSWORD': '1234', 
-        'HOST': '127.0.0.1', 
-        'PORT': '3306', 
-        'OPTIONS': { 
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" 
-        } 
-    }
+    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
 }
 
 
