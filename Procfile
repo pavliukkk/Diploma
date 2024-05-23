@@ -1,1 +1,1 @@
-web: gunicorn kyrsova.wsgi
+web: gunicorn kyrsova.wsgi --log-file -
