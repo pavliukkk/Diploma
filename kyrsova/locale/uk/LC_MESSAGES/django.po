@@ -1,0 +1,1274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-19 23:41+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\kyrsova\settings.py:34
+msgid "Ukrainian"
+msgstr ""
+
+#: .\kyrsova\templates\about.html:94 .\kyrsova\templates\activate_page.html:94
+#: .\kyrsova\templates\blog-post.html:94 .\kyrsova\templates\blog.html:94
+#: .\kyrsova\templates\change_password.html:94
+#: .\kyrsova\templates\contact.html:94 .\kyrsova\templates\edit_profile.html:82
+#: .\kyrsova\templates\index.html:97 .\kyrsova\templates\login.html:94
+#: .\kyrsova\templates\menu.html:94
+#: .\kyrsova\templates\password-recover.html:94
+#: .\kyrsova\templates\portfolio.html:94 .\kyrsova\templates\profile.html:95
+#: .\kyrsova\templates\registration.html:78
+#: .\kyrsova\templates\reset_password_confirm.html:89
+#: .\kyrsova\templates\tables.html:94
+msgid "Home"
+msgstr "Головна"
+
+#: .\kyrsova\templates\about.html:95 .\kyrsova\templates\activate_page.html:95
+#: .\kyrsova\templates\blog-post.html:95 .\kyrsova\templates\blog.html:95
+#: .\kyrsova\templates\change_password.html:95
+#: .\kyrsova\templates\contact.html:95 .\kyrsova\templates\edit_profile.html:83
+#: .\kyrsova\templates\index.html:98 .\kyrsova\templates\login.html:95
+#: .\kyrsova\templates\menu.html:95
+#: .\kyrsova\templates\password-recover.html:95
+#: .\kyrsova\templates\portfolio.html:95 .\kyrsova\templates\profile.html:96
+#: .\kyrsova\templates\registration.html:79
+#: .\kyrsova\templates\reset_password_confirm.html:90
+#: .\kyrsova\templates\tables.html:95
+msgid "Menu"
+msgstr "Меню"
+
+#: .\kyrsova\templates\about.html:96 .\kyrsova\templates\activate_page.html:96
+#: .\kyrsova\templates\blog-post.html:96 .\kyrsova\templates\blog.html:96
+#: .\kyrsova\templates\change_password.html:96
+#: .\kyrsova\templates\contact.html:96 .\kyrsova\templates\edit_profile.html:84
+#: .\kyrsova\templates\index.html:99 .\kyrsova\templates\login.html:96
+#: .\kyrsova\templates\menu.html:96
+#: .\kyrsova\templates\password-recover.html:96
+#: .\kyrsova\templates\portfolio.html:96 .\kyrsova\templates\profile.html:97
+#: .\kyrsova\templates\registration.html:80
+#: .\kyrsova\templates\reset_password_confirm.html:91
+#: .\kyrsova\templates\tables.html:96
+msgid "Blogs"
+msgstr "Блог"
+
+#: .\kyrsova\templates\about.html:97 .\kyrsova\templates\activate_page.html:97
+#: .\kyrsova\templates\blog-post.html:97 .\kyrsova\templates\blog.html:97
+#: .\kyrsova\templates\change_password.html:97
+#: .\kyrsova\templates\contact.html:97 .\kyrsova\templates\edit_profile.html:85
+#: .\kyrsova\templates\index.html:100 .\kyrsova\templates\login.html:97
+#: .\kyrsova\templates\menu.html:97
+#: .\kyrsova\templates\password-recover.html:97
+#: .\kyrsova\templates\portfolio.html:97 .\kyrsova\templates\profile.html:98
+#: .\kyrsova\templates\registration.html:81
+#: .\kyrsova\templates\reset_password_confirm.html:92
+#: .\kyrsova\templates\tables.html:97
+msgid "About"
+msgstr "Про нас"
+
+#: .\kyrsova\templates\about.html:98 .\kyrsova\templates\about.html:101
+#: .\kyrsova\templates\about.html:286 .\kyrsova\templates\activate_page.html:98
+#: .\kyrsova\templates\activate_page.html:102
+#: .\kyrsova\templates\activate_page.html:170
+#: .\kyrsova\templates\blog-post.html:98 .\kyrsova\templates\blog-post.html:101
+#: .\kyrsova\templates\blog-post.html:284 .\kyrsova\templates\blog.html:98
+#: .\kyrsova\templates\blog.html:101 .\kyrsova\templates\blog.html:321
+#: .\kyrsova\templates\change_password.html:98
+#: .\kyrsova\templates\change_password.html:101
+#: .\kyrsova\templates\change_password.html:201
+#: .\kyrsova\templates\contact.html:98 .\kyrsova\templates\contact.html:101
+#: .\kyrsova\templates\contact.html:304
+#: .\kyrsova\templates\edit_profile.html:86
+#: .\kyrsova\templates\edit_profile.html:96
+#: .\kyrsova\templates\edit_profile.html:193 .\kyrsova\templates\index.html:101
+#: .\kyrsova\templates\index.html:104 .\kyrsova\templates\index.html:409
+#: .\kyrsova\templates\login.html:98 .\kyrsova\templates\login.html:101
+#: .\kyrsova\templates\login.html:209 .\kyrsova\templates\menu.html:98
+#: .\kyrsova\templates\menu.html:101 .\kyrsova\templates\menu.html:292
+#: .\kyrsova\templates\password-recover.html:98
+#: .\kyrsova\templates\password-recover.html:101
+#: .\kyrsova\templates\password-recover.html:184
+#: .\kyrsova\templates\portfolio.html:98 .\kyrsova\templates\portfolio.html:101
+#: .\kyrsova\templates\portfolio.html:231 .\kyrsova\templates\profile.html:99
+#: .\kyrsova\templates\profile.html:102 .\kyrsova\templates\profile.html:237
+#: .\kyrsova\templates\registration.html:82
+#: .\kyrsova\templates\registration.html:85
+#: .\kyrsova\templates\registration.html:192
+#: .\kyrsova\templates\reset_password_confirm.html:93
+#: .\kyrsova\templates\reset_password_confirm.html:96
+#: .\kyrsova\templates\reset_password_confirm.html:175
+#: .\kyrsova\templates\single-post.html:453 .\kyrsova\templates\tables.html:98
+#: .\kyrsova\templates\tables.html:108
+msgid "Contact"
+msgstr "Контакти"
+
+#: .\kyrsova\templates\about.html:129 .\kyrsova\templates\blog-post.html:129
+#: .\kyrsova\templates\blog.html:129
+#: .\kyrsova\templates\change_password.html:128
+#: .\kyrsova\templates\contact.html:129
+#: .\kyrsova\templates\edit_profile.html:92
+#: .\kyrsova\templates\edit_profile.html:118 .\kyrsova\templates\index.html:132
+#: .\kyrsova\templates\menu.html:129 .\kyrsova\templates\portfolio.html:129
+#: .\kyrsova\templates\profile.html:129 .\kyrsova\templates\soon.html:135
+#: .\kyrsova\templates\tables.html:104 .\kyrsova\templates\tables.html:136
+msgid "Log In"
+msgstr "Увійти"
+
+#: .\kyrsova\templates\about.html:140
+msgid "Who We Are"
+msgstr "Про нас"
+
+#: .\kyrsova\templates\about.html:141
+msgid ""
+"The most important thing for us is to give you the comfortable dining "
+"experience"
+msgstr "Найважливіше для нас – це забезпечити вам харчування з комфортом"
+
+#: .\kyrsova\templates\about.html:154
+msgid "Our Story"
+msgstr "Наша історія"
+
+#: .\kyrsova\templates\about.html:155
+msgid ""
+"Amidst our city&#8217;s rhythm, our story thrives on a shared passion for "
+"culinary excellence. We embarked on this journey, blending diverse "
+"backgrounds and flavors to craft an experience that transcends mere dining. "
+"Every dish, a testament to dedication and the finest ingredients, tells a "
+"tale of creativity and tradition. Beyond flavors, it&#8217;s the shared "
+"moments and stories that define us. Each guest adds depth to our narrative, "
+"enriching our journey with every visit."
+msgstr ""
+"Серед ритму нашого міста наша історія процвітає завдяки спільній пристрасті "
+"до кулінарної досконалості. Ми розпочали цю подорож, поєднуючи різноманітне "
+"походження та смаки, щоб створити досвід, який виходить за межі простого "
+"обіду. Кожна страва, свідчення відданості та найкращих інгредієнтів, "
+"розповідає історію творчості та традицій. Окрім смаків, нас визначають "
+"спільні моменти та історії. Кожен гість додає глибини нашій розповіді, "
+"збагачуючи нашу подорож з кожним візитом."
+
+#: .\kyrsova\templates\about.html:163
+msgid "Restaurant Manager"
+msgstr "Менеджер ресторану"
+
+#: .\kyrsova\templates\about.html:168
+msgid ""
+"Welcome to Our Culinary Haven! Our Restaurant Manager orchestrates "
+"excellence, ensuring every detail, from impeccable service to savory "
+"cuisine, exceeds your expectations. Step into a world where passion meets "
+"precision, and every visit is a celebration of flavors and warmth."
+msgstr ""
+"Ласкаво просимо до нашої кулінарної гавані! Наш менеджер ресторану керує "
+"досконалістю, гарантуючи, що кожна деталь, від бездоганного обслуговування "
+"до смачної кухні, перевершить ваші очікування. Зробіть крок у світ, де "
+"пристрасть зустрічається з точністю, і кожен візит – це свято смаку та тепла."
+
+#: .\kyrsova\templates\about.html:171
+msgid "Executive Chef"
+msgstr "Головний шеф-повар"
+
+#: .\kyrsova\templates\about.html:176
+msgid ""
+"Welcome to the realm of culinary innovation and mastery! Our Executive Chef "
+"orchestrates a symphony of flavors, infusing passion and expertise into "
+"every dish. With an unwavering commitment to quality and creativity, our "
+"culinary maestro curates an extraordinary dining experience that transcends "
+"the ordinary. Prepare your palate for a journey through artful creations and "
+"exquisite tastes, where each plate tells a story of dedication and "
+"gastronomic delight. "
+msgstr ""
+"Ласкаво просимо в царство кулінарних інновацій і майстерності! Наш шеф-кухар "
+"оркеструє симфонію смаків, вливаючи пристрасть і досвід у кожну страву. З "
+"непохитною прихильністю до якості та креативності наш кулінарний майстер "
+"створює надзвичайні страви, які виходять за межі звичайного. Підготуйте свій "
+"смак до подорожі крізь майстерні витвори та вишукані смаки, де кожна тарілка "
+"розповідає історію відданості та гастрономічної насолоди."
+
+#: .\kyrsova\templates\about.html:185
+msgid "It looks delicious"
+msgstr "Виглядає смачно"
+
+#: .\kyrsova\templates\about.html:186
+msgid ""
+"Indulge in delectable flavors that tantalize your taste buds! Each dish is a "
+"culinary masterpiece crafted with passion and precision, promising an "
+"exquisite dining experience that delights both palate and soul."
+msgstr ""
+"Насолоджуйтесь чудовими ароматами, які спокушають ваші смакові рецептори! "
+"Кожна страва є кулінарним шедевром, створеним із пристрастю та точністю, що "
+"обіцяє вишуканий обід, який принесе задоволення як смаку, так і душі."
+
+#: .\kyrsova\templates\about.html:200
+msgid "Sophisticated Process"
+msgstr "Складний процес"
+
+#: .\kyrsova\templates\about.html:207
+msgid "01.Slice"
+msgstr "01.Нарізання"
+
+#: .\kyrsova\templates\about.html:208
+msgid ""
+"Delicately crafted, this process involves precision and finesse as our chefs "
+"expertly slice fresh, vibrant ingredients, ensuring each piece is a "
+"testament to culinary artistry and attention to detail."
+msgstr ""
+"Делікатне виготовлення, цей процес передбачає точність і тонкість, оскільки "
+"наші кухарі майстерно нарізають свіжі, яскраві інгредієнти, гарантуючи, що "
+"кожен шматочок є свідченням кулінарного мистецтва та уваги до деталей."
+
+#: .\kyrsova\templates\about.html:216
+msgid "02.Pickled"
+msgstr "02.Маринування"
+
+#: .\kyrsova\templates\about.html:217
+msgid ""
+"Our pickling technique transforms ordinary produce into tangy delights. With "
+"a blend of spices and time-honored methods, we pickle with care, infusing "
+"flavors that elevate dishes to new heights of taste and complexity."
+msgstr ""
+"Наша технологія маринування перетворює звичайні продукти на божественні "
+"насолоди. Завдяки поєднанню спецій і перевірених часом методів ми дбайливо "
+"маринуємо, додаючи смаків, які піднімають страви на нову висоту смаку."
+
+#: .\kyrsova\templates\about.html:225
+msgid "03.Bake"
+msgstr "03.Смаження"
+
+#: .\kyrsova\templates\about.html:226
+msgid ""
+"Imbued with warmth and aroma, our baking process is a labor of love. From "
+"the gentle kneading of dough to the artful placement in our ovens, each "
+"creation emerges with a golden hue, enticing with flavors that speak of "
+"tradition and expertise."
+msgstr ""
+"Пронизаний теплом і ароматом, наш процес смаження - це праця любові. Від "
+"маринування до смаження, кожен витвір має золотистий відтінок, спокушаючи "
+"смаками, які говорять про традиції та досвід."
+
+#: .\kyrsova\templates\about.html:236 .\kyrsova\templates\contact.html:199
+#: .\kyrsova\templates\contact.html:253 .\kyrsova\templates\index.html:280
+#: .\kyrsova\templates\menu.html:242
+msgid "Make a Reservation"
+msgstr "Бронювання столика"
+
+#: .\kyrsova\templates\about.html:237 .\kyrsova\templates\contact.html:200
+#: .\kyrsova\templates\contact.html:254 .\kyrsova\templates\index.html:281
+#: .\kyrsova\templates\menu.html:243
+msgid "Get in touch with restaurant"
+msgstr "Зв'яжіться з рестораном"
+
+#: .\kyrsova\templates\about.html:243 .\kyrsova\templates\about.html:247
+#: .\kyrsova\templates\contact.html:260 .\kyrsova\templates\contact.html:264
+#: .\kyrsova\templates\index.html:287 .\kyrsova\templates\index.html:291
+#: .\kyrsova\templates\menu.html:249 .\kyrsova\templates\menu.html:253
+msgid "Please select a date"
+msgstr "Будь ласка, виберіть дату"
+
+#: .\kyrsova\templates\about.html:251 .\kyrsova\templates\about.html:253
+#: .\kyrsova\templates\contact.html:216 .\kyrsova\templates\contact.html:218
+#: .\kyrsova\templates\contact.html:268 .\kyrsova\templates\contact.html:270
+#: .\kyrsova\templates\index.html:295 .\kyrsova\templates\index.html:297
+#: .\kyrsova\templates\menu.html:257 .\kyrsova\templates\menu.html:259
+msgid "1 Person"
+msgstr "1 людина"
+
+#: .\kyrsova\templates\about.html:254 .\kyrsova\templates\contact.html:219
+#: .\kyrsova\templates\contact.html:271 .\kyrsova\templates\index.html:298
+#: .\kyrsova\templates\menu.html:260
+msgid "2 People"
+msgstr "2 людині"
+
+#: .\kyrsova\templates\about.html:255 .\kyrsova\templates\contact.html:220
+#: .\kyrsova\templates\contact.html:272 .\kyrsova\templates\index.html:299
+#: .\kyrsova\templates\menu.html:261
+msgid "3 People"
+msgstr "3 людині"
+
+#: .\kyrsova\templates\about.html:256 .\kyrsova\templates\contact.html:221
+#: .\kyrsova\templates\contact.html:273 .\kyrsova\templates\index.html:300
+#: .\kyrsova\templates\menu.html:262
+msgid "4 People"
+msgstr "4 людині"
+
+#: .\kyrsova\templates\about.html:257 .\kyrsova\templates\contact.html:222
+#: .\kyrsova\templates\contact.html:274 .\kyrsova\templates\index.html:301
+#: .\kyrsova\templates\menu.html:263
+msgid "5 People"
+msgstr "5 людей"
+
+#: .\kyrsova\templates\about.html:258 .\kyrsova\templates\contact.html:223
+#: .\kyrsova\templates\contact.html:275 .\kyrsova\templates\index.html:302
+#: .\kyrsova\templates\menu.html:264
+msgid "6 People"
+msgstr "6 людей"
+
+#: .\kyrsova\templates\about.html:263 .\kyrsova\templates\about.html:266
+#: .\kyrsova\templates\contact.html:228 .\kyrsova\templates\contact.html:231
+#: .\kyrsova\templates\contact.html:280 .\kyrsova\templates\contact.html:283
+#: .\kyrsova\templates\index.html:307 .\kyrsova\templates\index.html:310
+#: .\kyrsova\templates\menu.html:269 .\kyrsova\templates\menu.html:272
+msgid "Table №1"
+msgstr "Столик №1"
+
+#: .\kyrsova\templates\about.html:267 .\kyrsova\templates\contact.html:232
+#: .\kyrsova\templates\contact.html:284 .\kyrsova\templates\index.html:311
+#: .\kyrsova\templates\menu.html:273
+msgid "Table №2"
+msgstr "Столик №2"
+
+#: .\kyrsova\templates\about.html:268 .\kyrsova\templates\contact.html:233
+#: .\kyrsova\templates\contact.html:285 .\kyrsova\templates\index.html:312
+#: .\kyrsova\templates\menu.html:274
+msgid "Table №3"
+msgstr "Столик №3"
+
+#: .\kyrsova\templates\about.html:269 .\kyrsova\templates\contact.html:234
+#: .\kyrsova\templates\contact.html:286 .\kyrsova\templates\index.html:313
+#: .\kyrsova\templates\menu.html:275
+msgid "Table №4"
+msgstr "Столик №4"
+
+#: .\kyrsova\templates\about.html:270 .\kyrsova\templates\contact.html:235
+#: .\kyrsova\templates\contact.html:287 .\kyrsova\templates\index.html:314
+#: .\kyrsova\templates\menu.html:276
+msgid "Table №5"
+msgstr "Столик №5"
+
+#: .\kyrsova\templates\about.html:271 .\kyrsova\templates\contact.html:236
+#: .\kyrsova\templates\contact.html:288 .\kyrsova\templates\index.html:315
+#: .\kyrsova\templates\menu.html:277
+msgid "Table №6"
+msgstr "Столик №6"
+
+#: .\kyrsova\templates\about.html:275 .\kyrsova\templates\contact.html:243
+#: .\kyrsova\templates\contact.html:292 .\kyrsova\templates\index.html:322
+#: .\kyrsova\templates\menu.html:281
+msgid "Book Now"
+msgstr "Забронювати зараз"
+
+#: .\kyrsova\templates\about.html:293
+#: .\kyrsova\templates\activate_page.html:176
+#: .\kyrsova\templates\blog-post.html:291 .\kyrsova\templates\blog.html:328
+#: .\kyrsova\templates\change_password.html:207
+#: .\kyrsova\templates\contact.html:311
+#: .\kyrsova\templates\edit_profile.html:200 .\kyrsova\templates\index.html:416
+#: .\kyrsova\templates\login.html:216 .\kyrsova\templates\menu.html:299
+#: .\kyrsova\templates\password-recover.html:191
+#: .\kyrsova\templates\portfolio.html:238 .\kyrsova\templates\profile.html:244
+#: .\kyrsova\templates\registration.html:199
+#: .\kyrsova\templates\reset_password_confirm.html:182
+#: .\kyrsova\templates\single-post.html:460
+msgid "Never Miss a Recipe"
+msgstr "Не пропустіть рецепт"
+
+#: .\kyrsova\templates\about.html:297
+#: .\kyrsova\templates\activate_page.html:148
+#: .\kyrsova\templates\blog-post.html:294 .\kyrsova\templates\blog.html:331
+#: .\kyrsova\templates\contact.html:208 .\kyrsova\templates\contact.html:315
+#: .\kyrsova\templates\edit_profile.html:157
+#: .\kyrsova\templates\edit_profile.html:204 .\kyrsova\templates\index.html:420
+#: .\kyrsova\templates\login.html:220 .\kyrsova\templates\menu.html:303
+#: .\kyrsova\templates\password-recover.html:163
+#: .\kyrsova\templates\password-recover.html:195
+#: .\kyrsova\templates\portfolio.html:242 .\kyrsova\templates\profile.html:182
+#: .\kyrsova\templates\profile.html:248
+#: .\kyrsova\templates\registration.html:202
+#: .\kyrsova\templates\reset_password_confirm.html:186
+#: .\kyrsova\templates\single-post.html:464
+msgid "Email Address"
+msgstr "Електронна пошта"
+
+#: .\kyrsova\templates\about.html:298
+#: .\kyrsova\templates\activate_page.html:181
+#: .\kyrsova\templates\blog-post.html:295 .\kyrsova\templates\blog.html:332
+#: .\kyrsova\templates\change_password.html:212
+#: .\kyrsova\templates\contact.html:316
+#: .\kyrsova\templates\edit_profile.html:205 .\kyrsova\templates\index.html:421
+#: .\kyrsova\templates\login.html:221 .\kyrsova\templates\menu.html:304
+#: .\kyrsova\templates\password-recover.html:196
+#: .\kyrsova\templates\portfolio.html:243 .\kyrsova\templates\profile.html:249
+#: .\kyrsova\templates\registration.html:203
+#: .\kyrsova\templates\reset_password_confirm.html:187
+#: .\kyrsova\templates\single-post.html:465
+msgid "Subscribe"
+msgstr "Підписатись"
+
+#: .\kyrsova\templates\about.html:300
+#: .\kyrsova\templates\activate_page.html:183
+#: .\kyrsova\templates\blog-post.html:297 .\kyrsova\templates\blog.html:334
+#: .\kyrsova\templates\change_password.html:214
+#: .\kyrsova\templates\contact.html:318
+#: .\kyrsova\templates\edit_profile.html:207 .\kyrsova\templates\index.html:423
+#: .\kyrsova\templates\login.html:223 .\kyrsova\templates\menu.html:306
+#: .\kyrsova\templates\password-recover.html:198
+#: .\kyrsova\templates\portfolio.html:245 .\kyrsova\templates\profile.html:251
+#: .\kyrsova\templates\registration.html:205
+#: .\kyrsova\templates\reset_password_confirm.html:189
+#: .\kyrsova\templates\single-post.html:467
+msgid "Join our subscribers and get best recipe delivered each week!"
+msgstr ""
+"Приєднуйтеся до наших підписників і отримуйте найкращі рецепти щотижня!"
+
+#: .\kyrsova\templates\activate_page.html:99
+#: .\kyrsova\templates\activate_page.html:125
+#: .\kyrsova\templates\login.html:128
+#: .\kyrsova\templates\password-recover.html:128
+#: .\kyrsova\templates\registration.html:178
+#: .\kyrsova\templates\reset_password_confirm.html:123
+msgid "Sign Up"
+msgstr "Реєстрація"
+
+#: .\kyrsova\templates\activate_page.html:140
+msgid "Activate account"
+msgstr "Активувати аккаунт"
+
+#: .\kyrsova\templates\activate_page.html:141
+msgid ""
+"Enter the email address you used to register and we&#8217;ll send you an "
+"activation link"
+msgstr ""
+"Введіть адресу електронної пошти, яку ви використовували для реєстрації, і "
+"ми надішлемо вам посилання для активації"
+
+#: .\kyrsova\templates\activate_page.html:147
+#: .\kyrsova\templates\edit_profile.html:156
+#: .\kyrsova\templates\password-recover.html:162
+#: .\kyrsova\templates\registration.html:145
+msgid "Enter your email"
+msgstr "Введіть електронну пошту"
+
+#: .\kyrsova\templates\activate_page.html:152
+#: .\kyrsova\templates\password-recover.html:167
+msgid "Please enter your email"
+msgstr "Будь ласка, введіть вашу пошту"
+
+#: .\kyrsova\templates\activate_page.html:154
+msgid "Send activation link"
+msgstr "Надіслати посилання"
+
+#: .\kyrsova\templates\activate_page.html:156
+#: .\kyrsova\templates\password-recover.html:171
+#: .\kyrsova\templates\reset_password_confirm.html:162
+msgid "Back to sign in"
+msgstr "Назад до авторизації"
+
+#: .\kyrsova\templates\activate_page.html:180
+#: .\kyrsova\templates\change_password.html:211
+#: .\kyrsova\templates\registration.html:146
+msgid "Email Adress"
+msgstr "Електронна пошта"
+
+#: .\kyrsova\templates\admin_login.html:44
+msgid "Log in as administrator"
+msgstr "Авторизуватися як адміністратор"
+
+#: .\kyrsova\templates\admin_login.html:50 .\kyrsova\templates\index.html:484
+#: .\kyrsova\templates\login.html:168
+msgid "Enter your email or phone number"
+msgstr "Введіть пошту чи номер телефону"
+
+#: .\kyrsova\templates\admin_login.html:51 .\kyrsova\templates\index.html:485
+#: .\kyrsova\templates\login.html:169
+msgid "Email or Phone Number"
+msgstr "Пошта або номер телефону"
+
+#: .\kyrsova\templates\admin_login.html:54 .\kyrsova\templates\index.html:489
+#: .\kyrsova\templates\login.html:173 .\kyrsova\templates\profile.html:299
+#: .\kyrsova\templates\registration.html:153
+msgid "Enter your password"
+msgstr "Введіть пароль"
+
+#: .\kyrsova\templates\admin_login.html:56
+#: .\kyrsova\templates\change_password.html:167
+#: .\kyrsova\templates\index.html:490 .\kyrsova\templates\login.html:174
+#: .\kyrsova\templates\profile.html:301
+#: .\kyrsova\templates\registration.html:155
+#: .\kyrsova\templates\reset_password_confirm.html:146
+msgid "Password"
+msgstr "Введіть пароль"
+
+#: .\kyrsova\templates\admin_login.html:62 .\kyrsova\templates\index.html:495
+#: .\kyrsova\templates\login.html:180
+msgid "Please enter your login"
+msgstr "Будь ласка, введіть логін"
+
+#: .\kyrsova\templates\admin_login.html:63 .\kyrsova\templates\index.html:496
+#: .\kyrsova\templates\login.html:181
+msgid "Please enter a password"
+msgstr "Будь ласка, введіть пароль"
+
+#: .\kyrsova\templates\admin_login.html:65 .\kyrsova\templates\index.html:498
+#: .\kyrsova\templates\login.html:183
+msgid "This user does not seem to exist"
+msgstr "Схоже цього користувача не існує"
+
+#: .\kyrsova\templates\admin_login.html:67 .\kyrsova\templates\index.html:500
+#: .\kyrsova\templates\login.html:185
+msgid "Wrong login or password"
+msgstr "Неправильний логін або пароль"
+
+#: .\kyrsova\templates\admin_login.html:69
+msgid "You are not an administrator"
+msgstr "Ви не адміністратор"
+
+#: .\kyrsova\templates\admin_login.html:71 .\kyrsova\templates\login.html:187
+msgid "Activation error. Your account may not be activated yet."
+msgstr "Помилка активації. Можливо, ваш обліковий запис ще не активовано."
+
+#: .\kyrsova\templates\admin_login.html:72 .\kyrsova\templates\login.html:188
+msgid "Click here to activate"
+msgstr "Натисніть тут, щоб активувати"
+
+#: .\kyrsova\templates\admin_login.html:76 .\kyrsova\templates\index.html:503
+#: .\kyrsova\templates\login.html:192
+msgid "Sign In"
+msgstr "Увійти"
+
+#: .\kyrsova\templates\change_password.html:126
+#: .\kyrsova\templates\profile.html:127
+msgid "Log out"
+msgstr "Вийти"
+
+#: .\kyrsova\templates\change_password.html:145
+msgid "Change Password"
+msgstr "Зміна паролю"
+
+#: .\kyrsova\templates\change_password.html:146
+msgid "Enter your old password and create a new one"
+msgstr "Введіть старий пароль і придумайте новий"
+
+#: .\kyrsova\templates\change_password.html:150
+#: .\kyrsova\templates\password-recover.html:156
+#: .\kyrsova\templates\profile.html:175
+msgid "Error!"
+msgstr "Помилка!"
+
+#: .\kyrsova\templates\change_password.html:150
+msgid "You entered a wrong old password"
+msgstr "Ви ввели неправильний старий пароль"
+
+#: .\kyrsova\templates\change_password.html:158
+msgid "Enter your old password"
+msgstr "Введіть наявний пароль"
+
+#: .\kyrsova\templates\change_password.html:160
+msgid "Old Password"
+msgstr "Старий пароль"
+
+#: .\kyrsova\templates\change_password.html:165
+#: .\kyrsova\templates\reset_password_confirm.html:140
+msgid "Enter your new password"
+msgstr "Введіть ваш новий пароль"
+
+#: .\kyrsova\templates\change_password.html:172
+msgid "Confirm your new password"
+msgstr "Підтвердіть новий пароль"
+
+#: .\kyrsova\templates\change_password.html:174
+#: .\kyrsova\templates\profile.html:306
+#: .\kyrsova\templates\registration.html:160
+#: .\kyrsova\templates\reset_password_confirm.html:150
+msgid "Confirm Password"
+msgstr "Підтвердіть пароль"
+
+#: .\kyrsova\templates\change_password.html:180
+#: .\kyrsova\templates\edit_profile.html:166
+#: .\kyrsova\templates\registration.html:169
+#: .\kyrsova\templates\reset_password_confirm.html:155
+msgid "Passwords do not match"
+msgstr "Паролі не співпадають"
+
+#: .\kyrsova\templates\change_password.html:181
+#: .\kyrsova\templates\edit_profile.html:167
+#: .\kyrsova\templates\registration.html:170
+#: .\kyrsova\templates\reset_password_confirm.html:156
+msgid "Passwords are too small"
+msgstr "Пароль замалий"
+
+#: .\kyrsova\templates\change_password.html:182
+#: .\kyrsova\templates\edit_profile.html:168
+#: .\kyrsova\templates\registration.html:171
+#: .\kyrsova\templates\reset_password_confirm.html:157
+msgid "Password must contain a letter"
+msgstr "Пароль має містити букву"
+
+#: .\kyrsova\templates\change_password.html:183
+#: .\kyrsova\templates\edit_profile.html:169
+#: .\kyrsova\templates\registration.html:172
+#: .\kyrsova\templates\reset_password_confirm.html:158
+msgid "Please fill in all fields"
+msgstr "Будь ласка, заповність всі поля"
+
+#: .\kyrsova\templates\change_password.html:185
+#: .\kyrsova\templates\profile.html:169
+#: .\kyrsova\templates\reset_password_confirm.html:160
+#, fuzzy
+#| msgid "Enter your password"
+msgid "Change password"
+msgstr "Введіть пароль"
+
+#: .\kyrsova\templates\change_password.html:187
+#: .\kyrsova\templates\edit_profile.html:177
+msgid "Back to profile"
+msgstr "Повернутися до профілю"
+
+#: .\kyrsova\templates\contact.html:140
+msgid "Get in Touch"
+msgstr "Будьте на зв'язку"
+
+#: .\kyrsova\templates\contact.html:141 .\kyrsova\templates\menu.html:141
+msgid "The freshest ingredients for you every day"
+msgstr "Найсвіжіші інгредієнти для вас щодня"
+
+#: .\kyrsova\templates\contact.html:146
+msgid "Open Time"
+msgstr "Час відкриття"
+
+#: .\kyrsova\templates\contact.html:147
+msgid "Sunday - Friday"
+msgstr "Неділя - П'ятниця"
+
+#: .\kyrsova\templates\contact.html:151
+msgid "Brunch"
+msgstr "Бранч"
+
+#: .\kyrsova\templates\contact.html:155 .\kyrsova\templates\portfolio.html:159
+#: .\kyrsova\templates\portfolio.html:187
+msgid "Lunch"
+msgstr "Обід"
+
+#: .\kyrsova\templates\contact.html:159 .\kyrsova\templates\portfolio.html:162
+#: .\kyrsova\templates\portfolio.html:188
+msgid "Dinner"
+msgstr "Вечеря"
+
+#: .\kyrsova\templates\contact.html:176
+msgid "We can be contacted via email"
+msgstr "З нами можна зв'язатися електронною поштою"
+
+#: .\kyrsova\templates\contact.html:177
+msgid " or telephone on"
+msgstr " або за телефоном"
+
+#: .\kyrsova\templates\contact.html:185
+msgid "We are located in"
+msgstr "Ми знаходимося в"
+
+#: .\kyrsova\templates\contact.html:188
+msgid "View in maps"
+msgstr "Переглянути на картах"
+
+#: .\kyrsova\templates\contact.html:204
+msgid "First Name"
+msgstr "Ім'я"
+
+#: .\kyrsova\templates\contact.html:206
+msgid "Last Name"
+msgstr "Прізвище"
+
+#: .\kyrsova\templates\contact.html:209 .\kyrsova\templates\profile.html:186
+msgid "Phone"
+msgstr "Номер телефону"
+
+#: .\kyrsova\templates\contact.html:242 .\kyrsova\templates\index.html:320
+msgid "We don&#8217;t work on Saturday. Please, choose another day"
+msgstr ""
+
+#: .\kyrsova\templates\edit_profile.html:134
+#: .\kyrsova\templates\edit_profile.html:139
+msgid "Change profile photo"
+msgstr "Змінити основну світлину"
+
+#: .\kyrsova\templates\edit_profile.html:148
+#: .\kyrsova\templates\registration.html:137
+msgid "Enter your surname"
+msgstr "Введіть прізвище"
+
+#: .\kyrsova\templates\edit_profile.html:149
+#: .\kyrsova\templates\registration.html:138
+msgid "Surname"
+msgstr "Прізвище"
+
+#: .\kyrsova\templates\edit_profile.html:152
+#: .\kyrsova\templates\registration.html:141
+msgid "Enter your name"
+msgstr "Введіть ваше ім'я"
+
+#: .\kyrsova\templates\edit_profile.html:153
+#: .\kyrsova\templates\registration.html:142
+msgid "Name"
+msgstr "Ім'я"
+
+#: .\kyrsova\templates\edit_profile.html:160
+#: .\kyrsova\templates\registration.html:149
+msgid "Enter your phone number"
+msgstr "Введіть номер телефону"
+
+#: .\kyrsova\templates\edit_profile.html:161
+msgid "Phone Number"
+msgstr "Номер телефону"
+
+#: .\kyrsova\templates\edit_profile.html:165
+#: .\kyrsova\templates\registration.html:168
+msgid "Please enter a complete phone number"
+msgstr "Будь ласка, допишіть свій номер"
+
+#: .\kyrsova\templates\edit_profile.html:172
+#: .\kyrsova\templates\registration.html:174
+msgid "User with this email or phone number already exists"
+msgstr "Користувач із даними контактними даними існує"
+
+#: .\kyrsova\templates\edit_profile.html:178
+msgid "Commit changes"
+msgstr "Підтвердити зміни"
+
+#: .\kyrsova\templates\index.html:143
+msgid "Healthy Eating is important part of lifestyle"
+msgstr "Здорове харчування є важливою частиною способу життя"
+
+#: .\kyrsova\templates\index.html:144
+msgid "Nutritious Choices: Fueling Your Life Through Healthy Eating"
+msgstr ""
+"Вибір поживних речовин: підживлення життя за допомогою здорового харчування"
+
+#: .\kyrsova\templates\index.html:145
+msgid "Scroll"
+msgstr "Меню"
+
+#: .\kyrsova\templates\index.html:159
+msgid "Start to plan your diet today"
+msgstr "Почніть планувати свій раціон сьогодні"
+
+#: .\kyrsova\templates\index.html:161
+msgid "Embark on a Healthier Tomorrow: Initiating Your Dietary Journey"
+msgstr "Почніть здорове майбутнє: почніть свою дієтичну подорож"
+
+#: .\kyrsova\templates\index.html:166
+msgid "Take Charge of Your Health: Commence Your Diet Planning Today"
+msgstr "Подбайте про своє здоров’я: почніть планувати дієту вже сьогодні"
+
+#: .\kyrsova\templates\index.html:178
+msgid "Our Menu"
+msgstr "Наше меню"
+
+#: .\kyrsova\templates\index.html:179
+msgid "This is a section of our menu."
+msgstr "Деякі з наших страв"
+
+#: .\kyrsova\templates\index.html:184 .\kyrsova\templates\menu.html:192
+msgid "Deep Sea Snow White Cod Fillet"
+msgstr "Філе глибоководної білосніжної тріски"
+
+#: .\kyrsova\templates\index.html:185 .\kyrsova\templates\menu.html:193
+msgid "Indulging in the Delicacy of Deep-Sea Snow White Cod Fillet"
+msgstr "Насолоджуйтеся вишуканим філе глибоководної білосніжної тріски"
+
+#: .\kyrsova\templates\index.html:189 .\kyrsova\templates\menu.html:197
+msgid "Steak With Rosemary Butter"
+msgstr "Стейк з маслом розмарину"
+
+#: .\kyrsova\templates\index.html:190 .\kyrsova\templates\menu.html:198
+msgid "Savoring Steak Perfected with Rosemary Butter"
+msgstr "Вишуканий стейк за особливим рецептом"
+
+#: .\kyrsova\templates\index.html:194 .\kyrsova\templates\menu.html:169
+msgid "Cucumber Salad"
+msgstr "Салат з огірків"
+
+#: .\kyrsova\templates\index.html:195 .\kyrsova\templates\menu.html:170
+msgid "Exploring the Simplicity of Cucumber Salad"
+msgstr "Досліджуємо простоту салату з огірків"
+
+#: .\kyrsova\templates\index.html:199 .\kyrsova\templates\menu.html:225
+msgid "Natural Wine Pairing"
+msgstr "Поєднання натурального вина"
+
+#: .\kyrsova\templates\index.html:200 .\kyrsova\templates\menu.html:226
+msgid "The Art of Natural Wine Pairings"
+msgstr "Мистецтво поєднання витонченого та вишуканого вина"
+
+#: .\kyrsova\templates\index.html:211
+msgid "Excellent cook"
+msgstr "Відмінний кухар"
+
+#: .\kyrsova\templates\index.html:213
+msgid "Mastering Culinary Artistry: Unveiling the Excellence of Cooking"
+msgstr "Оволодіння кулінарним мистецтвом: розкриття досконалості кулінарії"
+
+#: .\kyrsova\templates\index.html:230 .\kyrsova\templates\index.html:254
+msgid "Fashion"
+msgstr "В тренді"
+
+#: .\kyrsova\templates\index.html:238
+msgid "October 15,2023"
+msgstr "Жовтень 15,2023"
+
+#: .\kyrsova\templates\index.html:244
+msgid "Fruit and vegetables and protection against diseases"
+msgstr "Фрукти та овочі та захист від хвороб"
+
+#: .\kyrsova\templates\index.html:246
+msgid ""
+"Nature&#8217;s Defense: How Fruits and Vegetables Shield Against Diseases."
+msgstr "Захист природи: як фрукти та овочі захищають від хвороб."
+
+#: .\kyrsova\templates\index.html:247 .\kyrsova\templates\index.html:270
+msgid "Read More"
+msgstr "Детальніше"
+
+#: .\kyrsova\templates\index.html:262
+msgid "October 17,2023"
+msgstr "Жовтень 17,2023"
+
+#: .\kyrsova\templates\index.html:268
+msgid "Asparagus Spring Salad with Rocket, Goat&#8217;s Cheese"
+msgstr "Весняний салат зі спаржі з рукколою, козлятиною"
+
+#: .\kyrsova\templates\index.html:269
+msgid ""
+"Asparagus Delight: Spring Salad Infused with Rocket and Goat&#8217;s Cheese."
+msgstr "Насолода зі спаржею: весняний салат із рукколою та козячим сиром."
+
+#: .\kyrsova\templates\index.html:331
+msgid "Calories Energy Balance"
+msgstr "Енергетичний баланс калорій"
+
+#: .\kyrsova\templates\index.html:332
+msgid "Finding Balance for a Healthier You"
+msgstr "Пошук балансу для здоров’я"
+
+#: .\kyrsova\templates\index.html:337 .\kyrsova\templates\menu.html:154
+#: .\kyrsova\templates\portfolio.html:186
+msgid "Starters"
+msgstr "Перше"
+
+#: .\kyrsova\templates\index.html:342 .\kyrsova\templates\menu.html:182
+msgid "Mains"
+msgstr "Друге"
+
+#: .\kyrsova\templates\index.html:347
+msgid "Soups"
+msgstr "Супи"
+
+#: .\kyrsova\templates\index.html:362
+msgid ""
+"&#8220;An absolute gem for organic dining! The flavors were exquisite, and "
+"the attention to sourcing fresh, organic ingredients was evident in every "
+"dish. The ambiance was cozy yet elegant, complementing the dining experience "
+"perfectly. Highly recommend their farm-to-table approach!"
+msgstr ""
+"Абсолютна перлина для органічної їжі! Смак був вишуканим, а увага до свіжих "
+"органічних інгредієнтів була очевидною в кожній страві. Атмосфера була "
+"затишною, але елегантною, що ідеально доповнювала враження від обіду. "
+"Настійно рекомендую їх підхід «від ферми до столу»!"
+
+#: .\kyrsova\templates\index.html:367 .\kyrsova\templates\index.html:387
+msgid "Bloger"
+msgstr "Блогер"
+
+#: .\kyrsova\templates\index.html:372
+msgid ""
+"&#8220;A delightful culinary journey! The organic restaurant surpassed my "
+"expectations. The presentation of each dish was a work of art, and the taste "
+"was simply divine. The staff&#8217;s knowledge of the menu and their passion "
+"for organic cuisine added an extra layer to the overall experience. A must-"
+"visit for anyone seeking a true taste of organic dining."
+msgstr ""
+"Чудова кулінарна подорож! Органічний ресторан перевершив мої очікування. "
+"Подача кожної страви була витвором мистецтва, а смак – просто божественним. "
+"Знання персоналом меню та їхня пристрасть до органічної кухні додали ще один "
+"шар загальному досвіду. Обов’язковий для відвідування кожен, хто шукає "
+"справжній смак органічної їжі."
+
+#: .\kyrsova\templates\index.html:377
+msgid "Photographer"
+msgstr "Фотограф"
+
+#: .\kyrsova\templates\index.html:382
+msgid ""
+"&#8220; Exceptional! This organic restaurant is a standout in every aspect. "
+"From the first bite to the last, every dish was a testament to their "
+"commitment to quality preferences without compromising on taste. A definite "
+"go-to for those who appreciate organic, flavorful meals."
+msgstr ""
+"Винятковий! Цей органічний ресторан є видатним у всіх аспектах. Від першого "
+"шматка до останнього, кожна страва була свідченням їх відданості перевагам "
+"якості без шкоди для смаку. Безсумнівний вибір для тих, хто цінує органічні, "
+"ароматні страви."
+
+#: .\kyrsova\templates\index.html:446
+msgid "The order has been successfully placed! We will be glad to see you"
+msgstr "Замовлення успішно оформлено! Будемо раді Вас бачити"
+
+#: .\kyrsova\templates\index.html:447
+msgid " Want to pre-order?"
+msgstr " Бажаєте зробити попереднє замовлення?"
+
+#: .\kyrsova\templates\index.html:450 .\kyrsova\templates\profile.html:276
+#: .\kyrsova\templates\profile.html:287
+msgid "Yes"
+msgstr "Підтвердити"
+
+#: .\kyrsova\templates\index.html:451 .\kyrsova\templates\profile.html:277
+#: .\kyrsova\templates\profile.html:288 .\kyrsova\templates\profile.html:318
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: .\kyrsova\templates\index.html:454
+msgid "Sorry for the inconvenience!"
+msgstr "Вибачте за незручності!"
+
+#: .\kyrsova\templates\index.html:455
+msgid " This table is taken. "
+msgstr "Столик занятий"
+
+#: .\kyrsova\templates\index.html:455
+msgid "You can choose another table. "
+msgstr "Ви можете вибрати інший столик"
+
+#: .\kyrsova\templates\index.html:456
+msgid "Here is the list of available ones:"
+msgstr "Ось список доступних:"
+
+#: .\kyrsova\templates\index.html:463
+msgid "You cannot reserve this table as you have already reserved another one."
+msgstr ""
+"Ви не можете забронювати цей столик, оскільки ви вже забронювали інший."
+
+#: .\kyrsova\templates\index.html:465
+msgid "Sorry"
+msgstr "Вибачте"
+
+#: .\kyrsova\templates\index.html:465
+msgid "You cannot reserve this table because he is already taken"
+msgstr "Ви не можете забронювати цей столик, оскільки він вже заброньований."
+
+#: .\kyrsova\templates\index.html:467
+msgid ""
+"Sorry, there are no available tables at the moment. Please try again later."
+msgstr ""
+"Вибачте, на даний момент немає вільних столиків. Будь-ласка спробуйте "
+"пізніше."
+
+#: .\kyrsova\templates\index.html:478 .\kyrsova\templates\login.html:145
+msgid "Sign in to your account"
+msgstr "Увійдіть у свій обліковий запис"
+
+#: .\kyrsova\templates\index.html:505 .\kyrsova\templates\login.html:194
+msgid "Forgot Password?"
+msgstr "Забули пароль?"
+
+#: .\kyrsova\templates\index.html:506 .\kyrsova\templates\login.html:196
+msgid "Join"
+msgstr "Реєстрація"
+
+#: .\kyrsova\templates\login.html:146 .\kyrsova\templates\registration.html:130
+msgid "Welcome! Enter your details and get in touch with restaurant"
+msgstr "Ласкаво просимо! Введіть свої дані та зв'яжіться з рестораном"
+
+#: .\kyrsova\templates\login.html:152 .\kyrsova\templates\login.html:157
+#: .\kyrsova\templates\login.html:162
+#: .\kyrsova\templates\password-recover.html:151
+msgid "Success!"
+msgstr "Успіх!"
+
+#: .\kyrsova\templates\login.html:152
+msgid " Now you can log in with new password"
+msgstr " Тепер ви можете авторизуватись з новим паролем"
+
+#: .\kyrsova\templates\login.html:157
+msgid ""
+" Activation link sent. Please, check your email and activate your account."
+msgstr ""
+" Посилання для активації надіслано. Будь ласка, перевірте свою електронну "
+"пошту та активуйте обліковий запис."
+
+#: .\kyrsova\templates\login.html:162
+msgid ""
+" You have been successfully registered. Check your email and activate your "
+"account for future use"
+msgstr ""
+" Ви були успішно зареєстровані. Перевірте електронну пошту та активуйте ваш "
+"аккаунт для подальшого використання"
+
+#: .\kyrsova\templates\login.html:195
+msgid "Don&#8217;t have an account yet? Click below to register"
+msgstr "Досі не маєте аккаунту? Натисніть нижче для реєстрації"
+
+#: .\kyrsova\templates\menu.html:140
+msgid "View Our New Menu"
+msgstr "Перегляньте наше нове меню"
+
+#: .\kyrsova\templates\menu.html:155
+msgid ""
+"Welcome to Starters! Discover a tantalizing array of appetizers that pave "
+"the way for your culinary journey. Dive into a world of flavors, where every "
+"dish is a prelude to a remarkable dining experience."
+msgstr ""
+"Вітаємо в Starters! Відкрийте для себе спокусливий вибір закусок, які "
+"прокладуть шлях для вашої кулінарної подорожі. Пориньте у світ смаків, де "
+"кожна страва є прелюдією до чудового обіду."
+
+#: .\kyrsova\templates\menu.html:164
+msgid "Grilled Okra and Tomatoes"
+msgstr "Бамія та помідори на грилі"
+
+#: .\kyrsova\templates\menu.html:165
+msgid "Grilled Okra and Tomatoes Delight"
+msgstr "Насолода окрою та помідорами на грилі"
+
+#: .\kyrsova\templates\menu.html:174
+msgid "Basil Pancakes"
+msgstr "Млинці з базиліком"
+
+#: .\kyrsova\templates\menu.html:175
+msgid ""
+"Pancakes Infused with Fragrant Basil: A Delectable Twist on Breakfast "
+"Delights"
+msgstr "Млинці, напоєні ароматним базиліком: неймовірні смаки на сніданок"
+
+#: .\kyrsova\templates\menu.html:183
+msgid ""
+"The Heart of Our Culinary Craft. Delight in our standout dishes, "
+"meticulously prepared to captivate your senses and elevate your dining "
+"experience."
+msgstr ""
+"Серце нашої кулінарної майстерності. Насолодіться нашими видатними стравами, "
+"ретельно приготованими, щоб захопити ваші почуття та піднести враження від "
+"обіду."
+
+#: .\kyrsova\templates\menu.html:202
+msgid "Steaks with Grilled Kimchi"
+msgstr "Стейки з кімчі на грилі"
+
+#: .\kyrsova\templates\menu.html:203
+msgid "Seared Excellence: Elevating Steaks with Grilled Kimchi Twist"
+msgstr ""
+"Обсмажена досконалість: стейки, що підносяться, зі смаженою крутою кімчі"
+
+#: .\kyrsova\templates\menu.html:210
+msgid "Pastries & Drinks"
+msgstr "Випічка та напої"
+
+#: .\kyrsova\templates\menu.html:211
+msgid ""
+"Indulge in Sweet Bliss and Refreshing Elixirs. Treat yourself to a selection "
+"of heavenly pastries and an array of invigorating beverages crafted to "
+"delight your taste buds."
+msgstr ""
+"Побалуйте себе солодким блаженством і освіжаючими еліксирами. Побалуйте себе "
+"неперевершеною випічкою та багатьма підбадьорливими напоями, створеними для "
+"задоволення ваших смакових рецепторів."
+
+#: .\kyrsova\templates\menu.html:220
+msgid "Wine Pairing"
+msgstr "Поєднання вина"
+
+#: .\kyrsova\templates\menu.html:221
+msgid "Elevate Your Dining Experience with Perfect Wine Pairings"
+msgstr "Зробіть свій обід кращим за допомогою ідеальних вин"
+
+#: .\kyrsova\templates\menu.html:230
+msgid "Whisky Flyer"
+msgstr "Віскі Флаєр"
+
+#: .\kyrsova\templates\menu.html:231
+msgid "Explore Our Collection of Fine Spirits and Discover Your Perfect Pour"
+msgstr ""
+"Ознайомтеся з нашою колекцією вишуканих алкогольних напоїв і знайдіть свій "
+"ідеальний налив"
+
+#: .\kyrsova\templates\password-recover.html:144
+#: .\kyrsova\templates\reset_password_confirm.html:139
+msgid "Recover Password"
+msgstr "Відновлення паролю"
+
+#: .\kyrsova\templates\password-recover.html:145
+msgid ""
+"Enter the email address you used to register and we&#8217;ll send you the "
+"instruction"
+msgstr ""
+"Введіть електронну пошту, використану при реєстрації і ми надішлемо лист з "
+"інструкціями"
+
+#: .\kyrsova\templates\password-recover.html:151
+msgid ""
+"The activation email has been successfully sent. Please check your email."
+msgstr ""
+"Посилання з інструкціями надіслано успішно. Будь ласка, перевірте пошту"
+
+#: .\kyrsova\templates\password-recover.html:156
+msgid "The link is invalid"
+msgstr "Посилання недійсне"
+
+#: .\kyrsova\templates\password-recover.html:169
+msgid "Send"
+msgstr "Надіслати"
+
+#: .\kyrsova\templates\portfolio.html:140
+msgid "Portfolio"
+msgstr "Портфоліо"
+
+#: .\kyrsova\templates\portfolio.html:153
+msgid "All"
+msgstr "Всі"
+
+#: .\kyrsova\templates\portfolio.html:156
+msgid "Starter"
+msgstr "Перше"
+
+#: .\kyrsova\templates\portfolio.html:165
+#: .\kyrsova\templates\portfolio.html:189
+msgid "Drinks"
+msgstr "Напої"
+
+#: .\kyrsova\templates\portfolio.html:168
+#: .\kyrsova\templates\portfolio.html:190
+msgid "Sweets"
+msgstr "Солодке"
+
+#: .\kyrsova\templates\portfolio.html:171
+#: .\kyrsova\templates\portfolio.html:191
+msgid "Fruits"
+msgstr "Фрукти"
+
+#: .\kyrsova\templates\portfolio.html:174
+#: .\kyrsova\templates\portfolio.html:192
+msgid "Alcohol"
+msgstr "Алкоголь"
+
+#: .\kyrsova\templates\portfolio.html:181
+#: .\kyrsova\templates\portfolio.html:221
+msgid "Choose"
+msgstr ""
+
+#: .\kyrsova\templates\profile.html:166
+msgid "Information"
+msgstr "Інформація"
+
+#: .\kyrsova\templates\profile.html:168
+msgid "Change profile data"
+msgstr "Редагувати дані"
+
+#: .\kyrsova\templates\profile.html:170 .\kyrsova\templates\profile.html:317
+msgid "Delete account"
+msgstr "Видалити аккаунт"
+
+#: .\kyrsova\templates\profile.html:175
+msgid "Wrong password"
+msgstr "Неправильний пароль"
+
+#: .\kyrsova\templates\profile.html:190
+msgid "Phone number not available"
+msgstr "Номер недоступний"
+
+#: .\kyrsova\templates\profile.html:194 .\kyrsova\templates\profile.html:199
+msgid "Reservation"
+msgstr "Бронювання столика"
+
+#: .\kyrsova\templates\profile.html:204
+msgid "Date"
+msgstr "Дата"
+
+#: .\kyrsova\templates\profile.html:208
+msgid "Time"
+msgstr "Час"
+
+#: .\kyrsova\templates\profile.html:212
+msgid "People"
+msgstr "Кількість людей"
+
+#: .\kyrsova\templates\profile.html:216
+msgid "Table"
+msgstr "Столик"
+
+#: .\kyrsova\templates\profile.html:222
+msgid "No reservations found for this user."
+msgstr "Немає бронювань"
+
+#: .\kyrsova\templates\profile.html:273
+msgid "Do you really want to cancel the reservation?"
+msgstr "Ви точно хочете скасувати бронювання?"
+
+#: .\kyrsova\templates\profile.html:284
+msgid "Do you really want to delete your account?"
+msgstr "Ви дійсно хочете видалити ваш аккаунт?"
+
+#: .\kyrsova\templates\profile.html:293
+msgid "Please enter your password to delete your account"
+msgstr "Будь ласка, введіть пароль для видалення аккаунту"
+
+#: .\kyrsova\templates\profile.html:294
+msgid ""
+"Attention, after deleting your account, it will not be possible to restore it"
+msgstr "Увага! Після видалення аккаунту його відновлення буде неможливим"
+
+#: .\kyrsova\templates\profile.html:308
+#: .\kyrsova\templates\registration.html:162
+msgid "Confirm"
+msgstr "Підтвердження"
+
+#: .\kyrsova\templates\registration.html:112
+#, fuzzy
+#| msgid "Log In"
+msgid "Log in"
+msgstr "Увійти"
+
+#: .\kyrsova\templates\registration.html:129
+msgid "Create Account"
+msgstr "Створення аккаунту"
+
+#: .\kyrsova\templates\registration.html:131
+msgid "Already have an account?"
+msgstr "Вже маєте аккаунт?"
+
+#: .\kyrsova\templates\registration.html:131
+msgid "Click here to log in"
+msgstr "Натисніть тут, щоб авторизуватись"
+
+#: .\kyrsova\templates\tables.html:152
+msgid "Free"
+msgstr "Вільний"
+
+#: .\kyrsova\templates\tables.html:152
+msgid "Busy"
+msgstr "Занятий"
+
+#: .\kyrsova\templates\tables.html:158
+msgid "The table is available"
+msgstr "Столик вільний"
+
+#: .\kyrsova\templates\tables.html:160
+msgid "The table is not available"
+msgstr "Столик занятий"
+
+#: .\kyrsova\views.py:801
+msgid "StatusMsg"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Delete account"
+#~ msgid "Delete my account"
+#~ msgstr "Видалити аккаунт"
+
+#, fuzzy
+#~| msgid "Lunch"
+#~ msgid "Launch"
+#~ msgstr "Обід"
+
+#~ msgid "Email"
+#~ msgstr "Електронна пошта"

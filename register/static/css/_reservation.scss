@@ -1,0 +1,49 @@
+.reservation {
+  background-color: $colorLightGray;
+
+  &__container {
+    padding: 237px 0 254px 0;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 18px;
+  }
+
+  &__text {
+    margin-bottom: 133px;
+  }
+}
+
+.reservation-form {
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 133px;
+  }
+
+  &__input {
+    padding: 0 40px;
+    width: 516px;
+    height: 96px;
+    background-color: transparent;
+    border: 2px solid #000;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__button {
+    width: 344px;
+    height: 88px;
+    color: #fff;
+    @include font-style(32px, 700, 1.5);
+    font-family: $fontTitle;
+    background-color: #233000;
+    border: 2px solid #000;
+    transition: opacity 250ms $transitionBase;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}

@@ -1,0 +1,401 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='robots' content='index, follow'>
+    <meta name='author' content='Petro Pavliuk'>
+    <meta name='description' content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid atque enim soluta harum explicabo nam adipisci blanditiis autem quibusdam nulla!
+      Consequatur aliquam quidem error sit natus nam accusamus excepturi consectetur.'>
+    <meta property='og:title' content='Blogs' />
+    <meta property='og:description' content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid atque enim soluta harum explicabo nam adipisci blanditiis autem quibusdam nulla!
+      Consequatur aliquam quidem error sit natus nam accusamus excepturi consectetur.' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='' />
+    <meta property='og:image' content='img/favicon/apple-touch-icon.webp' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/normalize/normalize.css' %}">
+    <link rel='stylesheet' href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>{{request.user.first_name }} {{request.user.last_name }}</title>
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap-profiles.min.css' %}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="overlay" id="wrapper">
+        <header>
+            <nav class="nav">
+                <div class="container">
+                    <div class="nav__body">
+                        <div class="nav__item"> <a href="{% url 'home' %}" class="nav__logo">
+                                <svg width="307" height="115" viewBox="0 0 307 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M57 2H245V27H247V2V0H245H57H55V2V27H57V2ZM57 87H55V113V115H57H245H247V113V87H245V113H57V87Z" fill="white" />
+                                    <path d="M14.7591 54.3393V73.625L20.6224 74.2449V75.898H0V74.2449L5.86322 73.625V32.1607L0 31.403V29.8189H34.3706V39.6684H32.214L29.6531 32.3673L14.7591 32.1607V51.8597H27.9009L29.9901 46.7627H31.9445V59.574H29.9227L27.9009 54.3393H14.7591Z" fill="white" />
+                                    <path d="M69.104 71.6964C65.959 75.0025 61.6683 76.6556 56.2319 76.6556C50.7955 76.6556 46.5048 75.0025 43.3597 71.6964C40.2147 68.3903 38.6422 64.1888 38.6422 59.0918C38.6422 53.9949 40.2147 49.7934 43.3597 46.4872C46.5048 43.1811 50.7955 41.5281 56.2319 41.5281C61.6683 41.5281 65.959 43.1811 69.104 46.4872C72.249 49.7934 73.8215 53.9949 73.8215 59.0918C73.8215 64.1888 72.249 68.3903 69.104 71.6964ZM48.0099 59.0918C48.0099 69.699 50.7505 75.0025 56.2319 75.0025C61.7132 75.0025 64.4539 69.699 64.4539 59.0918C64.4539 53.903 63.8473 49.977 62.6343 47.3138C61.4212 44.6046 59.287 43.25 56.2319 43.25C53.1767 43.25 51.0426 44.6046 49.8295 47.3138C48.6164 49.977 48.0099 53.903 48.0099 59.0918Z" fill="white" />
+                                    <path d="M109.514 71.6964C106.369 75.0025 102.078 76.6556 96.6416 76.6556C91.2052 76.6556 86.9145 75.0025 83.7694 71.6964C80.6244 68.3903 79.0519 64.1888 79.0519 59.0918C79.0519 53.9949 80.6244 49.7934 83.7694 46.4872C86.9145 43.1811 91.2052 41.5281 96.6416 41.5281C102.078 41.5281 106.369 43.1811 109.514 46.4872C112.659 49.7934 114.231 53.9949 114.231 59.0918C114.231 64.1888 112.659 68.3903 109.514 71.6964ZM88.4196 59.0918C88.4196 69.699 91.1602 75.0025 96.6416 75.0025C102.123 75.0025 104.864 69.699 104.864 59.0918C104.864 53.903 104.257 49.977 103.044 47.3138C101.831 44.6046 99.6967 43.25 96.6416 43.25C93.5864 43.25 91.4523 44.6046 90.2392 47.3138C89.0261 49.977 88.4196 53.903 88.4196 59.0918Z" fill="white" />
+                                    <path d="M133.749 76.9311C129.66 76.9311 126.268 75.5306 123.573 72.7296C120.877 69.9286 119.529 65.7041 119.529 60.0561C119.529 54.4081 121.124 49.9541 124.314 46.6939C127.549 43.4337 131.84 41.8036 137.186 41.8036C139.972 41.8036 142.6 42.4694 145.071 43.801V26.3061L139.275 25.8929V24.1709L153.697 23V74.3138L159.426 74.5893L159.493 76.1735L145.408 77L145.543 70.801H145.138C144.015 72.7296 142.42 74.2449 140.354 75.3469C138.287 76.4031 136.085 76.9311 133.749 76.9311ZM145.004 65.2908V46.3495C143.207 44.6505 140.915 43.801 138.13 43.801C134.58 43.801 132.154 45.477 130.851 48.8291C129.773 51.7678 129.234 55.5102 129.234 60.0561C129.234 69.8367 131.368 74.727 135.636 74.727C138.152 74.727 140.331 73.625 142.173 71.4209C144.06 69.2168 145.004 67.1735 145.004 65.2908Z" fill="white" />
+                                    <path d="M162.783 40.0127V29.8877L202.006 29.75V31.8852L172.892 72.3852L197.221 72.523L199.58 64.9464H201.804V75.0025L161.839 75.1403V73.2117L191.223 32.5051L167.366 32.3673L165.007 40.0127H162.783Z" fill="white" />
+                                    <path d="M229.503 51.8597C229.503 46.2576 227.594 43.4566 223.775 43.4566C219.776 43.4566 217.35 47.0382 216.496 54.2015H229.369C229.458 53.2831 229.503 52.5025 229.503 51.8597ZM223.168 76.6556C218.361 76.6556 214.452 75.0485 211.442 71.8342C208.477 68.6199 206.994 64.3724 206.994 59.0918C206.994 53.8112 208.544 49.5638 211.644 46.3495C214.789 43.1352 218.765 41.5281 223.573 41.5281C228.38 41.5281 231.974 42.5842 234.356 44.6964C236.737 46.7627 237.928 49.6556 237.928 53.375C237.928 54.4311 237.838 55.5331 237.658 56.6811H216.294V59.0918C216.294 64.2347 216.923 68.1378 218.181 70.801C219.439 73.4184 221.326 74.727 223.842 74.727C226.403 74.727 228.717 74.199 230.784 73.1429C232.896 72.0408 234.535 70.5025 235.704 68.5281C236.692 68.8495 237.186 69.3316 237.186 69.9745C237.186 71.1225 236.13 72.4541 234.019 73.9694C232.985 74.7041 231.503 75.3469 229.571 75.898C227.684 76.4031 225.55 76.6556 223.168 76.6556Z" fill="white" />
+                                    <path d="M255.189 50.4133C255.953 47.9337 257.346 45.8214 259.368 44.0765C261.434 42.3316 263.299 41.4592 264.961 41.4592C266.669 41.4592 267.814 41.8954 268.398 42.7678C268.982 43.5944 269.274 44.2832 269.274 44.8342C269.274 46.7168 268.6 48.0714 267.253 48.8979C266.354 48.1632 265.006 47.7959 263.209 47.7959C261.457 47.7959 259.705 48.3699 257.952 49.5178C256.2 50.6199 255.324 51.8367 255.324 53.1684V73.9005L261.389 74.3138V75.898H242.587V74.3138L247.035 73.9694V44.5587L241.576 44.2832V42.699L255.324 41.9413L254.92 50.4133H255.189Z" fill="white" />
+                                    <path d="M302.282 71.6964C299.137 75.0025 294.847 76.6556 289.41 76.6556C283.974 76.6556 279.683 75.0025 276.538 71.6964C273.393 68.3903 271.821 64.1888 271.821 59.0918C271.821 53.9949 273.393 49.7934 276.538 46.4872C279.683 43.1811 283.974 41.5281 289.41 41.5281C294.847 41.5281 299.137 43.1811 302.282 46.4872C305.427 49.7934 307 53.9949 307 59.0918C307 64.1888 305.427 68.3903 302.282 71.6964ZM281.188 59.0918C281.188 69.699 283.929 75.0025 289.41 75.0025C294.892 75.0025 297.632 69.699 297.632 59.0918C297.632 53.903 297.026 49.977 295.813 47.3138C294.6 44.6046 292.465 43.25 289.41 43.25C286.355 43.25 284.221 44.6046 283.008 47.3138C281.795 49.977 281.188 53.903 281.188 59.0918Z" fill="white" />
+                                </svg></a>
+                            <div class="language-burger">
+                                {% get_current_language as CURRENT_LANGUAGE %}
+                                {% if CURRENT_LANGUAGE == "uk" %}
+                                <a href="{% url 'switch_language' 'en' %}?next={{ request.path }}?next={{ request.path }}" title="Змінити на англійську" class="language-hide"><img src="{% static 'img/locale/america.png' %}"></a>
+                                {% elif CURRENT_LANGUAGE == "en" %}
+                                <a href="{% url 'switch_language' 'uk' %}?next={{ request.path }}" title="Change to Ukrainian" class="language-hide"><img src="{% static 'img/locale/ukraine.png' %}"></a>
+                                {% endif %}
+                                {% if user_profile.photo and request.user.is_authenticated %}
+                                <a href="{% url 'logout' %}"><img src="{% static 'img/user_photo/logout.png' %}" alt="Avatar" class="logout-hide" title="You are beautiful:)"></a>
+                                {% else %}
+                                <a href="{% url 'login'%}"><img src="{% static 'img/user_photo/user_photo.png' %}" alt="Default Avatar" class="logout-hide"></a>
+                                {% endif %}
+                                <div class="burger"> <span></span></div>
+                            </div>
+                        </div>
+                        <div class="nav__menu">
+                            <ul class="nav__list">
+                                <li><a href="{% url 'home' %}" class="nav__list-link">{% trans 'Home' %}</a></li>
+                                <li><a href="{% url 'menu' %}" class="nav__list-link">{% trans 'Menu' %}</a></li>
+                                <li><a href="{% url 'blogs' %}" class="nav__list-link">{% trans 'Blogs' %}</a></li>
+                                <li><a href="{% url 'about' %}" class="nav__list-link">{% trans 'About' %}</a></li>
+                                <li><a href="{% url 'contact' %}" class="nav__list-link">{% trans 'Contact' %}</a></li>
+                            </ul>
+                            <div class="nav__info">
+                                <div class="nav__info-title subtitle-big">{% trans 'Contact' %}</div>
+                                <div class="nav__info-break"></div>
+                                <div class="nav__info-text subtext">
+                                    <a href="tel:+86 852 346 000">+86 852 346 000</a>
+                                    <a href="mailto:info@foodzero.com">info@foodzero.com</a>
+                                </div>
+                                <div class="nav__info-text subtext">1959 Sepulveda Blvd. Culver City, CA, 90230</div> <a href="#" class="nav__info-text hide subtext">+86 852 346 000</a>
+                                <div class="nav__info-icons">
+                                    <a class="css-sprite-instagram" href="https://www.instagram.com" target="_blank"></a>
+                                    <a class="css-sprite-twitter" href="https://twitter.com" target="_blank"></a>
+                                    <a class="css-sprite-facebook" href="https://www.facebook.com" target="_blank"></a>
+                                    <a class="css-sprite-youtube" href="https://www.youtube.com" target="_blank"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav__contact">
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% if CURRENT_LANGUAGE == "uk" %}
+                            <a href="{% url 'switch_language' 'en' %}?next={{ request.path }}" title="Змінити на англійську"><img src="{% static 'img/locale/america.png' %}"></a>
+                            {% elif CURRENT_LANGUAGE == "en" %}
+                            <a href="{% url 'switch_language' 'uk' %}?next={{ request.path }}" title="Change to Ukrainian"><img src="{% static 'img/locale/ukraine.png' %}"></a>
+                            {% endif %}
+                            <a href="tel:+86 852 346 000" class="nav__link">+86 852 346 000</a>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="nav__btn subtitle-big">{% trans 'Log out' %}</a>
+                            {% else %}
+                            <a href="{% url 'login' %}" class="nav__btn subtitle-big">{% trans 'Log In' %}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <style>
+            .gradient-custom {
+                /* fallback for old browsers */
+                background: #f6d365;
+
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: -webkit-linear-gradient(to right bottom, #5e6600, #233000);
+
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background: linear-gradient(to right bottom, #5e6600, #233000)
+            }
+        </style>
+        <section class="vh-90" style="background-color: #f4f5f7;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+                        <div class="card mb-3" style="border-radius: .5rem;">
+                            <div class="row g-0">
+                                <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    {% if user_profile.photo %}
+                                    <img src="{{ user_profile.photo.url }}" alt="Avatar" class="img-fluid my-5" style="width: 200px; cursor: pointer;" title="You are beautiful:)">
+                                    {% else %}
+                                    <img src="{% static 'img/user_photo/user_photo.png' %}" alt="Default Avatar" class="img-fluid my-5" style="width: 200px; cursor: pointer;">
+                                    {% endif %}
+                                    <h5 class="title">{{ request.user.first_name }} {{request.user.last_name }}</h5>
+                                    <i class="far fa-edit mb-5"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <div class="profile__information">
+                                            <h6 class="info subtitle">{% trans 'Information' %}</h6>
+                                            <div class="center_items">
+                                                <a href="{% url 'profile_edit' username=request.user.username %}" class="change_profile--info subtext" title="Click here and change your personal data">{% trans 'Change profile data' %}</a>
+                                                <a href="{% url 'change_password' %}" class="change_profile--info subtext">{% trans 'Change password' %}</a>
+                                                <a class="change_profile--info subtext" title="Here you can delete your account">{% trans 'Delete account' %}</a>
+                                            </div>
+                                        </div>
+                                        {% if wrong_password %}
+                                        <div class="alert alert-danger alert-dismissible fade show text" style="margin: 20px 0; font-family: Lato, Roboto;">
+                                            <strong>{% trans 'Error!' %}</strong> {% trans 'Wrong password' %}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                        </div>
+                                        {% elif activate_link_sent%}
+                                        <div class="alert alert-success alert-dismissible fade show text" style="margin: 20px 0; font-family: Lato, Roboto;">
+                                            <strong>{% trans 'Success!' %}</strong>{% trans ' Activation link sent. Please, check your email and activate your account.' %}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                        </div>
+                                        {% endif %}
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6 class="profile text">{% trans 'Email Address' %}</h6>
+                                                <p class="text-muted">{{ user.email }}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6 class="profile text">{% trans 'Phone' %}</h6>
+                                                {% if user_profile %}
+                                                <p class="text-muted">{{ user_profile.phone_number }}</p>
+                                                {% else %}
+                                                <p class="text-muted">{% trans 'Phone number not available' %}</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <h6 class="info subtitle">{% trans 'Reservation' %}</h6>
+                                        <hr class="mt-0 mb-4">
+                                        {% if reservations %}
+                                        {% for reservation in reservations %}
+                                        <div class="booking__item mb-3" style="margin: 30px 0 10px 0;">
+                                            <h6 class="info subtitle-big" style="color: black">{% trans 'Reservation' %} {{ forloop.counter }}</h6>
+                                            <button type="button" class="reservation__profile-delete-button" title="Cancel reservation" id="delete__reservation--btn">&#x2715;</button>
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6 class="profile text">{% trans 'Date' %}</h6>
+                                                <p class="text-muted">{{ reservation.date }}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6 class="profile text">{% trans 'Time' %}</h6>
+                                                <p class="text-muted">{{ reservation.time }}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6 class="profile text">{% trans 'People' %}</h6>
+                                                <p class="text-muted">{% trans  reservation.people %}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6 class="profile text">{% trans 'Table' %}</h6>
+                                                <p class="text-muted">{% trans  reservation.table %}</p>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        {% if meals %}
+                                        <h6 class="info subtitle" style="color: black">{% trans 'Meals' %}</h6>
+                                        <h6 class="profile text">{% trans '' %}</h6>
+                                        {% for meal in meals %}
+                                        <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <p class="text-muted" style="margin: 0; padding: 0;">{{ meal.meal_name }}</p>
+                                        </div>
+                                </div>
+                                        {% endfor %}
+                                        {% endif %}
+                                        {% else %}
+                                        <p class="text-muted">{% trans 'No reservations found for this user.' %}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="footer">
+                    <a href="{% url 'home' %}" class="footer__logo title">Food Zero.</a>
+                    <div class="footer__contact">
+                        <div class="footer__title subtitle-big">{% trans 'Contact' %}</div>
+                        <div class="footer__text subtext">
+                            <a href="tel:+1+86 852 346 000">+1+86 852 346 000</a> <a href="mailto:info@foodzero.com"> info@foodzero.com</a>
+                        </div>
+                        <div class="footer__text subtext">1959 Sepulveda Blvd. Culver City, CA, 90230</div>
+                    </div>
+                    <div class="footer__item">
+                        <div class="footer__title subtitle-big">{% trans 'Never Miss a Recipe' %}</div>
+                        <form action="{% url 'subscribe' %}" method="post" class="footer__form">
+                            {% csrf_token %}
+                            <input type="email" name="email" class="footer__form-input footer__subtitle text" placeholder="{% trans 'Email Address' %}" required>
+                            <button class="footer__form-btn footer__title subtitle-big" type="submit">{% trans 'Subscribe' %}</button>
+                        </form>
+                        <div class="footer__subtext">{% trans 'Join our subscribers and get best recipe delivered each week!' %}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="copy"> <a href="#" class="footer__subtitle text">© 2020 Zero Inc. All rights Reserved</a>
+                        <div class="copy__icons">
+                            <a class="css-sprite-instagram" href="https://www.instagram.com" target="_blank"></a>
+                            <a class="css-sprite-twitter" href="https://twitter.com" target="_blank"></a>
+                            <a class="css-sprite-facebook" href="https://www.facebook.com" target="_blank"></a>
+                            <a class="css-sprite-youtube" href="https://www.youtube.com" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    {% if reservations %}
+    {% for reservation in reservations %}
+    <div class="modal" id="delete_reservation" style="display: none;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p class="subtitle">{% trans 'Do you really want to cancel the reservation?' %}</p>
+        <form class="delete__reservation--btns" method="post" action="{% url 'delete_reservation' reservation.id %}" id="deleteForm">
+            {% csrf_token %}
+            <button class="confirm__delete_reservation subtitle-big" type="submit">{% trans 'Yes' %}</button>
+            <a onclick="closeModal()" class="cancel__delete_reservation subtitle-big">{% trans 'Cancel' %}</a>
+        </form>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="modal" id="delete_account" style="display: none;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p class="subtitle">{% trans 'Do you really want to delete your account?' %}</p>
+        <form class="delete__reservation--btns" method="post" id="deleteAccountForm">
+            {% csrf_token %}
+            <button class="confirm__delete_reservation subtitle-big" type="submit">{% trans 'Yes' %}</button>
+            <a onclick="closeModal()" class="cancel__delete_reservation subtitle-big">{% trans 'Cancel' %}</a>
+        </form>
+    </div>
+    <div class="modal" id="delete_account_confirm" style="display: none;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p class="subtitle">{% trans 'Please enter your password to delete your account' %}</p>
+        <p class="text">{% trans 'Attention, after deleting your account, it will not be possible to restore it' %}</p>
+        <form class="delete__reservation--btns" id="deleteAccountFormConfirm" action="{% url 'delete_account' %}" method="post">
+            <div class="login__form-inputs">
+                {% csrf_token %}
+                <div class="editfields">
+                    <div class="subtitle-big edit">{% trans 'Enter your password' %}</div>
+                    <div class="reservation__form-input-passwords">
+                        <input class="reservation__form-input text" type="password" name="password" id="password" placeholder="{% trans 'Password' %}">
+                        <span onclick="togglePasswordVisibility('password', 'password-toggle-registration')"><img class="password-toggle-login" src="{% static 'img/hide_show_passwords/show_password.png' %}" id="password-toggle-registration"></span>
+                    </div>
+                </div>
+                <div class="editfields">
+                    <div class="subtitle-big edit">{% trans 'Confirm Password' %}</div>
+                    <div class="reservation__form-input-passwords">
+                        <input class="reservation__form-input text" type="password" name="confirm_password" id="confirm_password" placeholder="{% trans 'Confirm' %}">
+                        <span onclick="togglePasswordVisibility('confirm_password', 'confirm-password-toggle-registration')"><img class="password-toggle-login" src="{% static 'img/hide_show_passwords/show_password.png' %}" id="confirm-password-toggle-registration"></span>
+                    </div>
+                </div>
+                <div class="errors">
+                    <p class="error-msg message" style="bottom: 0;" id="fill_passwords_error">Please fill in all fields</p>
+                    <p class="error-msg message" style="bottom: 0;" id="different_passwords">Passwords do not match</p>
+                    <p class="error-msg message" style="bottom: 0;" id="wrong_password">Incorrect password</p>
+                </div>
+                <button class="confirm__delete_reservation subtitle-big" type="submit">{% trans 'Delete account' %}</button>
+                <a onclick="closeModal()" class="cancel__delete_reservation subtitle-big">{% trans 'Cancel' %}</a>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/scrollAnimations.js' %}"></script>
+    <script src="{% static 'js/main.min.js' %}"></script>
+    <script src="{% static 'js/deleteReservation.js' %}"></script>
+    <script src="{% static 'js/togglePasswords.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteAccountLink = document.querySelector('.change_profile--info[title="Here you can delete your account"]');
+            const deleteAccountModal = document.getElementById('delete_account');
+            const deleteAccountConfirmModal = document.getElementById('delete_account_confirm');
+            const closeModalBtn = deleteAccountModal.querySelector('.close');
+            const cancelBtn = deleteAccountModal.querySelector('.cancel__delete_reservation');
+            const deleteAccountForm = deleteAccountModal.querySelector('#deleteAccountFormConfirm');
+            const wrapper = document.getElementById("wrapper");
+            const fillPasswordsError = document.getElementById('fill_passwords_error');
+            const differentPasswordsError = document.getElementById('different_passwords');
+
+            // Відкриття модального вікна delete_account
+            deleteAccountLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                deleteAccountModal.style.display = 'block';
+                wrapper.classList.add('blur');
+            });
+
+            // Закриття модального вікна delete_account при кліку на "хрестик" або "Cancel"
+            closeModalBtn.addEventListener('click', closeModal);
+            cancelBtn.addEventListener('click', closeModal);
+
+            // Закриття модального вікна delete_account при кліку поза ним
+            document.addEventListener('mousedown', function(event) {
+                if (!deleteAccountModal.contains(event.target) && !deleteAccountConfirmModal.contains(event.target)) {
+                    closeModal();
+                }
+            });
+
+            // Відкриття модального вікна delete_account_confirm при кліку на "Yes"
+            const confirmDeleteBtn = deleteAccountModal.querySelector('.confirm__delete_reservation');
+            confirmDeleteBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                wrapper.classList.add('blur');
+                deleteAccountModal.style.display = 'none';
+                deleteAccountConfirmModal.style.display = 'block';
+            });
+
+            // Закриття модального вікна delete_account_confirm при кліку на "хрестик" або "Cancel"
+            const closeConfirmModalBtn = deleteAccountConfirmModal.querySelector('.close');
+            const cancelConfirmBtn = deleteAccountConfirmModal.querySelector('.cancel__delete_reservation');
+            closeConfirmModalBtn.addEventListener('click', closeModal);
+            cancelConfirmBtn.addEventListener('click', closeModal);
+
+            // Функція закриття модального вікна
+            function closeModal() {
+                deleteAccountModal.style.display = 'none';
+                deleteAccountConfirmModal.style.display = 'none';
+                wrapper.classList.remove('blur');
+            }
+
+            document.getElementById('deleteAccountFormConfirm').addEventListener('submit', function(event) {
+                var password = document.getElementById('password').value;
+                var confirmPassword = document.getElementById('confirm_password').value;
+                var fillPasswordsError = document.getElementById('fill_passwords_error');
+                var differentPasswordsError = document.getElementById('different_passwords');
+                const weakPasswordError = document.getElementById('weak_password');
+                const containsLetter = /[a-zA-Z]/.test(password);
+
+                fillPasswordsError.style.display = 'none';
+                differentPasswordsError.style.display = 'none';
+
+                if (password === '' || confirmPassword === '') {
+                    fillPasswordsError.style.display = 'block';
+                    event.preventDefault();
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    differentPasswordsError.style.display = 'block';
+                    event.preventDefault();
+                    return;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
