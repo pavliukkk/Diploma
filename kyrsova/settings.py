@@ -87,17 +87,7 @@ WSGI_APPLICATION = 'kyrsova.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'railway', 
-        'USER': 'root', 
-        'PASSWORD': 'kKMtYqiuPzmypLCpWKhXdciMgeDUaRhU', 
-        'HOST': 'viaduct.proxy.rlwy.net', 
-        'PORT': '51971', 
-        
-    }
-}
+
 
 
 # Password validation
