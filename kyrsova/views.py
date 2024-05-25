@@ -20,18 +20,16 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.forms import SetPasswordForm
-from django.utils.encoding import smart_bytes
 from django.contrib.auth.decorators import user_passes_test
 import calendar
 import re
-from django.db.models import Q
 from django.core.mail import send_mail
 from threading import Thread
 from .tasks import schedule_table_update
 from django.utils.translation import activate, check_for_language, gettext_lazy as _
 from PIL import Image, ImageDraw
 from io import BytesIO
-from django.db.models import Avg, Count
+from django.db.models import Avg
 from django.utils.translation import activate
 from pytz import timezone as tz
 from django.contrib.auth import get_user_model
@@ -108,6 +106,7 @@ def send_activation_email(email, activation_link):
     recipient_list = [email]
     send_mail(subject, message, from_email, recipient_list, fail_silently=False)
 
+@csrf_exempt
 def activation_email_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -128,6 +127,7 @@ def activation_email_view(request):
     else:
         return render(request, 'login.html')
 
+@csrf_exempt
 def activate_account(request, uidb64, token):
     try:
         uid = force_bytes(urlsafe_base64_decode(uidb64))
@@ -289,6 +289,7 @@ def admin_login(request):
     else:
         return render(request, 'admin_login.html', {'no_user': False, 'wrong_password': False})
 
+@csrf_exempt
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email', '')
@@ -538,6 +539,7 @@ def crop_to_circle(image_path):
         return output
 
 @login_required(login_url='/home/')
+@csrf_exempt
 def profile_edit(request, username):
     user = get_object_or_404(User, username=username)
 
@@ -615,6 +617,7 @@ def profile_edit(request, username):
     
     return render(request, 'edit_profile.html', {'user_profile': user_profile, 'initial_data': initial_data, 'form': AvatarChangeForm(instance=user_profile, prefix='user_profile')})
 
+@csrf_exempt
 def delete_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation_main, id=reservation_id, user=request.user)
     reservation.delete()
@@ -626,6 +629,7 @@ def delete_reservation(request, reservation_id):
     return redirect(reverse('profile', args=[username]))
 
 @login_required
+@csrf_exempt
 def change_avatar(request):
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     username = request.user.username
@@ -637,6 +641,7 @@ def change_avatar(request):
 
     return render(request, 'edit_profile.html', {'form': AvatarChangeForm(instance=user_profile, prefix='user_profile')})
 
+@csrf_exempt
 def reset_password(request):
     if request.method == 'POST':
         form = PasswordResetForm(request.POST)
@@ -662,6 +667,7 @@ def reset_password(request):
     return render(request, 'password-recover.html', {'form': form})
 
 UserModel = get_user_model()
+@csrf_exempt
 def reset_password_confirm(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
@@ -687,6 +693,7 @@ def reset_password_confirm(request, uidb64, token):
         return render(request, 'password-recover.html', {'link_invalid': True})
 
 @login_required(login_url='/home/')
+@csrf_exempt
 def change_password(request):
     user=request.user
     if request.method == 'POST':
@@ -713,6 +720,7 @@ def change_password(request):
     return render(request, 'change_password.html')
 
 @login_required
+@csrf_exempt
 def delete_account(request):
     if request.method == 'POST':
         password = request.POST.get('password')
@@ -742,6 +750,7 @@ def table_status(request):
     context = {'tables': tables}
     return render(request, 'tables.html', context)
 
+@csrf_exempt
 def update_table_status(request, table_id):
     if request.method == 'POST':
         table = get_object_or_404(Tables, id=table_id)
@@ -778,6 +787,7 @@ def meal_list(request):
     return render(request, 'portfolio.html', context)
 
 @login_required
+@csrf_exempt
 def save_reservation_meals(request):
     if request.method == 'POST':
         meal_ids = request.POST.get('meal_ids', '').split(',')
@@ -809,6 +819,7 @@ def save_reservation_meals(request):
 
     return render(request, 'error.html', {'error': 'Invalid request method'})
 
+@csrf_exempt
 def save_review(request):
     if request.method == 'POST':
         meal_id = request.POST.get('meal_id')
