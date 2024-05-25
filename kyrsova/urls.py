@@ -29,6 +29,7 @@ urlpatterns = [
     path('sign_up/', views.register, name='sign_up'),
     path('login/', views.user_login, name='login'),
     path('home/', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('save-reservation/', save_reservation, name='save_reservation'),
     path('menu/', TemplateView.as_view(template_name='menu.html'), name='menu'),
     path('blogs/', TemplateView.as_view(template_name='blog.html'), name='blogs'),
