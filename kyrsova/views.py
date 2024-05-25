@@ -41,6 +41,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth import update_session_auth_hash
 
 @user_passes_test(lambda u: u.is_anonymous, login_url='/home/')
+@csrf_exempt
 def register(request):
     if request.method == 'POST':
         surname = request.POST.get('surname')
