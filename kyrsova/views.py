@@ -86,7 +86,7 @@ def register(request):
         token = default_token_generator.make_token(user)
 
         # Відправте електронний лист із посиланням для активації
-        activation_link = f"http://127.0.0.1:8000/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
         send_activation_email(email, activation_link)
 
         # Authenticate and log in the user
@@ -118,7 +118,7 @@ def activation_email_view(request):
         token = default_token_generator.make_token(user)
 
         # Генерація посилання для активації
-        activation_link = f"http://127.0.0.1:8000/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
 
         # Відправлення електронного листа з посиланням для активації
         send_activation_email(email, activation_link)
