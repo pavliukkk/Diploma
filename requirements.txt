@@ -33,11 +33,11 @@ idna==3.6
 kombu==5.3.7
 multidict==6.0.5
 mysql-connector-python==8.4.0
-mysqlclient==2.2.4
 packaging==24.0
 pillow==10.2.0
 prompt-toolkit==3.0.43
 PyJWT==2.8.0
+PyMySQL==1.1.1
 pyTelegramBotAPI==4.16.1
 python-crontab==3.0.0
 python-dateutil==2.9.0.post0
