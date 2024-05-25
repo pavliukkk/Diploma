@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o%ql_ulfpek&i%#&)t^a+y9h@y#o^)#c$so5!x57ggp4g7=q_&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -91,7 +91,18 @@ WSGI_APPLICATION = 'kyrsova.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
+=======
+    'default': { 
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'railway', 
+        'USER': 'root', 
+        'PASSWORD': 'kKMtYqiuPzmypLCpWKhXdciMgeDUaRhU', 
+        'HOST': 'viaduct.proxy.rlwy.net', 
+        'PORT': '51971' 
+    }
+>>>>>>> origin/main
 }
 
 
