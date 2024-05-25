@@ -93,16 +93,6 @@ WSGI_APPLICATION = 'kyrsova.wsgi.application'
 DATABASES = {
 <<<<<<< HEAD
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
-=======
-    'default': { 
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'railway', 
-        'USER': 'root', 
-        'PASSWORD': 'kKMtYqiuPzmypLCpWKhXdciMgeDUaRhU', 
-        'HOST': 'viaduct.proxy.rlwy.net', 
-        'PORT': '51971' 
-    }
->>>>>>> origin/main
 }
 
 
