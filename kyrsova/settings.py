@@ -91,7 +91,6 @@ WSGI_APPLICATION = 'kyrsova.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
 }
 
