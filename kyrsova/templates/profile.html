@@ -178,45 +178,44 @@
                                         </div>
                                         <h6 class="info subtitle">{% trans 'Reservation' %}</h6>
                                         <hr class="mt-0 mb-4">
-                                        {% if reservations %}
-                                        {% for reservation in reservations %}
-                                        <div class="booking__item mb-3" style="margin: 30px 0 10px 0;">
-                                            <h6 class="info subtitle-big" style="color: black">{% trans 'Reservation' %} {{ forloop.counter }}</h6>
-                                            <button type="button" class="reservation__profile-delete-button" title="Cancel reservation" id="delete__reservation--btn">&#x2715;</button>
-                                        </div>
-                                        <div class="row pt-1">
-                                            <div class="col-6 mb-3">
-                                                <h6 class="profile text">{% trans 'Date' %}</h6>
-                                                <p class="text-muted">{{ reservation.date }}</p>
+                                        {% if reservations_with_meals %}
+                                        {% for item in reservations_with_meals %}
+                                            <div class="booking__item mb-3" style="margin: 30px 0 10px 0;">
+                                                <h6 class="info subtitle-big" style="color: black">{% trans 'Reservation' %} {{ forloop.counter }}</h6>
+                                                <button type="button" class="reservation__profile-delete-button" title="Cancel reservation" id="delete__reservation--btn">&#x2715;</button>
                                             </div>
-                                            <div class="col-6 mb-3">
-                                                <h6 class="profile text">{% trans 'Time' %}</h6>
-                                                <p class="text-muted">{{ reservation.time }}</p>
+                                            <div class="row pt-1">
+                                                <div class="col-6 mb-3">
+                                                    <h6 class="profile text">{% trans 'Date' %}</h6>
+                                                    <p class="text-muted">{{ item.reservation.date }}</p>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <h6 class="profile text">{% trans 'Time' %}</h6>
+                                                    <p class="text-muted">{{ item.reservation.time }}</p>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <h6 class="profile text">{% trans 'People' %}</h6>
+                                                    <p class="text-muted">{{ item.reservation.people }}</p>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <h6 class="profile text">{% trans 'Table' %}</h6>
+                                                    <p class="text-muted">{{ item.reservation.table }}</p>
+                                                </div>
                                             </div>
-                                            <div class="col-6 mb-3">
-                                                <h6 class="profile text">{% trans 'People' %}</h6>
-                                                <p class="text-muted">{% trans  reservation.people %}</p>
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <h6 class="profile text">{% trans 'Table' %}</h6>
-                                                <p class="text-muted">{% trans  reservation.table %}</p>
-                                            </div>
-                                        </div>
+                                            {% if item.meals %}
+                                                <h6 class="info subtitle" style="color: black">{% trans 'Meals' %}</h6>
+                                                {% for meal in item.meals %}
+                                                    <div class="row pt-1">
+                                                        <div class="col-6 mb-3">
+                                                            <p class="text-muted" style="margin: 0; padding: 0;">{{ meal.meal_name }}</p>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         {% endfor %}
-                                        {% if meals %}
-                                        <h6 class="info subtitle" style="color: black">{% trans 'Meals' %}</h6>
-                                        <h6 class="profile text">{% trans '' %}</h6>
-                                        {% for meal in meals %}
-                                        <div class="row pt-1">
-                                        <div class="col-6 mb-3">
-                                            <p class="text-muted" style="margin: 0; padding: 0;">{{ meal.meal_name }}</p>
-                                        </div>
-                                </div>
-                                        {% endfor %}
-                                        {% endif %}
-                                        {% else %}
+                                    {% else %}
                                         <p class="text-muted">{% trans 'No reservations found for this user.' %}</p>
-                                        {% endif %}
+                                    {% endif %}
                                     </div>
                                 </div>
                             </div>
