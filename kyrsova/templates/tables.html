@@ -155,7 +155,7 @@
                            {% csrf_token %}
                            <input type="hidden" name="table_id" value="{{ table.id }}">
                            <input type="hidden" name="current_status" value="{{ table.available }}">
-                           <p class="text">{% trans 'The table is available' %}</p>
+                           <p class="text" onclick="this.form.submit()">{% trans 'The table is available' %}</p>
                            <input type="checkbox" name="available" {% if table.available %}checked{% endif %} onchange="this.form.submit()">
                            <p class="text">{% trans 'The table is not available' %}</p>
                            <input type="checkbox" name="available" {% if not table.available %}checked{% endif %} onchange="this.form.submit()">
@@ -198,6 +198,8 @@
                            otherCheckbox.checked = false;
                        }
                    });
+                   // Відправляємо форму
+                   checkbox.form.submit();
                });
            });
 
@@ -211,8 +213,8 @@
                            otherCheckbox.checked = false;
                        }
                    });
-                   // Встановлюємо галочку в обраному чекбоксі
-                   checkbox.checked = true;
+                   // Відправляємо форму
+                   checkbox.form.submit();
                });
            });
        });
