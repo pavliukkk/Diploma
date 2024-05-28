@@ -5110,6 +5110,11 @@ body.portfolio_body{
 	cursor:pointer;
 	text-decoration:none
 }
+#preOrderButton{
+  display: flex;
+    margin: 0 auto;
+    margin-top: 50px;
+}
 .register__btn:hover, #preOrderButton:hover{
 	color:#fff;
 	background:#324500;
