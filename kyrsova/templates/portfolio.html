@@ -1,4 +1,4 @@
-﻿{% load static %}
+{% load static %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
@@ -223,7 +223,7 @@
                      {% endfor %}
                  </ul>
                  {% if preorder %}
-                     <button id="preOrderButton" class="register__btn subtitle-big">{% trans 'pre-order' %}</button>
+                     <button id="preOrderButton" class="subtitle-big">{% trans 'Pre-order' %}</button>
                  {% endif %}
                  
                  <form id="saveReservationMealsForm" method="post" action="{% url 'save_reservation_meals' %}?reservation_id={{ reservation.id }}">
