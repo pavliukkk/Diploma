@@ -206,8 +206,7 @@
                         <input type="text" class="reservation__form-input small text" placeholder="{% trans 'Last Name' %}"
                            name="last_name">
                         <input type="email" class="reservation__form-input text" placeholder="{% trans 'Email Address' %}" name="email">
-                        <input type="tel" class="reservation__form-input text" placeholder="{% trans 'Phone' %}" name="phone"
-                           pattern="[0-9]{1,}">
+                        <input class="reservation__form-input text" type="text" name="phone" placeholder="+380 (99) 999-99-99" id="phone_number">
                         <input type="date" class="reservation__form-input small text" placeholder="2023-09-01"
                            onfocus="(this.type='date')" name="date">
                         <input type="time" class="reservation__form-input small text" placeholder="18:00" name="time">
@@ -333,23 +332,33 @@
          </div>
       </footer>
    </div>
-   {% if success_reservation_modal or table_is_not_available or user_exist %}
+   {% if success_reservation_modal or table_is_not_available or existing_reservation or existing_reservation_user or activate_link_sent %}
    <div class="modal" id="successfull_reservation" style="display: block;">
        <span class="close" onclick="closeModal()">&times;</span>
        <p style="font-family: Rufina;">
            {% if success_reservation_modal %}
-              The order has been successfully placed! We will be glad to see you :)
+           <p class="title">{% trans 'The order has been successfully placed! We will be glad to see you' %}</p>
+           <p class="process__title title-big" style="margin: 50px 0 20px 0!important; color: #000;">{% trans ' Want to pre-order?' %}</p>
+           <form class="delete__reservation--btns" method="post" id="deleteAccountForm" action="{% url 'portfolio' %}">
+            {% csrf_token %}
+            <button class="confirm__delete_reservation subtitle-big" type="submit">{% trans 'Yes' %}</button>
+            <a onclick="closeModal()" class="cancel__delete_reservation subtitle-big">{% trans 'Cancel' %}</a>
+        </form>
            {% elif available_tables %}
-               Sorry for the inconvenience :( This table is taken. You can choose another table. Here is the list of available ones:
+           <p class="title">{% trans 'Sorry for the inconvenience!' %}</p><br>
+           <p class="process__title title-big" style="margin-bottom: 0!important;">{% trans ' This table is taken. ' %}</p>{% trans 'You can choose another table. ' %}<br><br>
+           <p class="subtitle">{% trans 'Here is the list of available ones:' %}</p>
                <ul>
                   {% for table in available_tables %}
-                      <li>{{ table }}</li>
+                      <li style="font-family: 'Vollkorn'">{{ table }}</li>
                   {% endfor %}
               </ul>
-            {% elif user_exist %}
-            Unable to complete the reservation. The entered phone number or email already belongs to a user
+            {% elif existing_reservation_user %}
+            {% trans 'You cannot reserve this table as you have already reserved another one.' %}
+            {% elif existing_reservation %}
+            <p class="title">{% trans 'Sorry' %}</p><br> {% trans 'You cannot reserve this table because he is already taken' %}
            {% else %}
-               Sorry, there are no available tables at the moment. Please try again later.
+           {% trans 'Sorry, there are no available tables at the moment. Please try again later.' %}
            {% endif %}
        </p>
    </div>
@@ -365,6 +374,8 @@
    <script src="{% static 'js/reservation_form_check.js' %}"></script>
    {% endif %}
    <script src="{% static 'js/animations.js' %}"></script>
+   <script src="{% static 'js/inputmask.js' %}"></script>
+    <script src="{% static 'js/phoneMask.js' %}"></script>
 </body>
 
 </html>
