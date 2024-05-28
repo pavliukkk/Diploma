@@ -492,7 +492,10 @@ def reservation_from_contact(request):
 
         # Check if the table is in the available tables
         translated_table = all_tables.get(table, table)
-
+        if User.objects.filter(email=email).exists() or UserProfile.objects.filter(phone_number=phone).exists():
+            # Handle case where email or phone number is already registered
+            return render(request, 'contact.html', {'user_exist': True})
+        
         if translated_table not in available_tables:
             # Handle case where selected table is occupied
             return render(request, 'index.html', {
