@@ -560,7 +560,13 @@ def profile_info(request, username):
 
     reservations = Reservation_main.objects.filter(user=user)
 
-    meals = ReservationMeal.objects.filter(reservation__in=reservations)
+    reservations_with_meals = []
+    for reservation in reservations:
+        meals = ReservationMeal.objects.filter(reservation=reservation)
+        reservations_with_meals.append({
+            'reservation': reservation,
+            'meals': meals
+        })
     
     try:
         user_profile = UserProfile.objects.get(user=user)
@@ -572,7 +578,7 @@ def profile_info(request, username):
         # Якщо ні, перенаправте користувача на власний профіль
         return redirect('profile', username=request.user.username)
 
-    return render(request, 'profile.html', {'reservations': reservations, 'user_profile': user_profile, 'meals':meals})
+    return render(request, 'profile.html', {'reservations_with_meals': reservations_with_meals, 'user_profile': user_profile})
 
 def crop_to_circle(image_path):
     # Відкриття завантаженої фотографії за допомогою Pillow
