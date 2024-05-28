@@ -1204,7 +1204,7 @@ msgstr "Столик"
 
 #: .\kyrsova\templates\profile.html:207
 msgid "Meals"
-msgstr ""
+msgstr "Страви"
 
 #: .\kyrsova\templates\profile.html:218
 msgid "No reservations found for this user."
