@@ -20,17 +20,19 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.forms import SetPasswordForm
+from django.utils.encoding import smart_bytes
 from django.contrib.auth.decorators import user_passes_test
 import calendar
 import re
+from django.db.models import Q
 from django.core.mail import send_mail
 from threading import Thread
 from .tasks import schedule_table_update
 from django.utils.translation import activate, check_for_language, gettext_lazy as _
 from PIL import Image, ImageDraw
 from io import BytesIO
-from django.db.models import Avg
-from django.utils.translation import activate
+from django.db.models import Avg, Count
+from django.utils.translation import activate, get_language
 from pytz import timezone as tz
 from django.contrib.auth import get_user_model
 from django.utils.encoding import force_str
@@ -39,7 +41,6 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth import update_session_auth_hash
 
 @user_passes_test(lambda u: u.is_anonymous, login_url='/home/')
-@csrf_exempt
 def register(request):
     if request.method == 'POST':
         surname = request.POST.get('surname')
@@ -86,7 +87,7 @@ def register(request):
         token = default_token_generator.make_token(user)
 
         # Відправте електронний лист із посиланням для активації
-        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"http://127.0.0.1:8000/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
         send_activation_email(email, activation_link)
 
         # Authenticate and log in the user
@@ -106,7 +107,6 @@ def send_activation_email(email, activation_link):
     recipient_list = [email]
     send_mail(subject, message, from_email, recipient_list, fail_silently=False)
 
-@csrf_exempt
 def activation_email_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -118,7 +118,7 @@ def activation_email_view(request):
         token = default_token_generator.make_token(user)
 
         # Генерація посилання для активації
-        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"http://127.0.0.1:8000/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
 
         # Відправлення електронного листа з посиланням для активації
         send_activation_email(email, activation_link)
@@ -127,7 +127,6 @@ def activation_email_view(request):
     else:
         return render(request, 'login.html')
 
-@csrf_exempt
 def activate_account(request, uidb64, token):
     try:
         uid = force_bytes(urlsafe_base64_decode(uidb64))
@@ -289,7 +288,6 @@ def admin_login(request):
     else:
         return render(request, 'admin_login.html', {'no_user': False, 'wrong_password': False})
 
-@csrf_exempt
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email', '')
@@ -309,8 +307,6 @@ def subscribe(request):
                 return JsonResponse({'error': str(e)})
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-from django.shortcuts import render, HttpResponseRedirect
-
 @csrf_exempt
 def save_reservation(request):
     if request.method == 'POST':
@@ -318,7 +314,7 @@ def save_reservation(request):
             date = request.POST.get('date')
             time = request.POST.get('time')
             people = request.POST.get('people')
-            table = request.POST.get('table')
+            table_name = request.POST.get('table')
 
             # Convert date to datetime object
             reservation_datetime = datetime.datetime.strptime(date + ' ' + time, '%Y-%m-%d %H:%M')
@@ -330,21 +326,21 @@ def save_reservation(request):
             # Check for existing reservations for both main and contact tables
             existing_reservations_main = Reservation_main.objects.filter(
                 date=date,
-                time__gte=existing_reservation_start_time,
-                time__lte=existing_reservation_end_time
+                time__gte=existing_reservation_start_time.time(),
+                time__lte=existing_reservation_end_time.time()
             ).values_list('table', flat=True)
 
             existing_reservations_contact = Reservation.objects.filter(
                 date=date,
-                time__gte=existing_reservation_start_time,
-                time__lte=existing_reservation_end_time
+                time__gte=existing_reservation_start_time.time(),
+                time__lte=existing_reservation_end_time.time()
             ).values_list('table', flat=True)
 
             existing_reservation_main_user = Reservation_main.objects.filter(
                 user=request.user,
                 date=date,
-                time__gte=existing_reservation_start_time,
-                time__lte=existing_reservation_end_time
+                time__gte=existing_reservation_start_time.time(),
+                time__lte=existing_reservation_end_time.time()
             ).exists()
 
             # Combine reserved tables from both types of reservations
@@ -372,28 +368,61 @@ def save_reservation(request):
             }
 
             # Get available tables in the selected language
-            available_tables_in_selected_language = [table_translations[request.LANGUAGE_CODE].get(table, table) for table in available_tables]
+            language_code = get_language()
+            available_tables_in_selected_language = [table_translations[language_code].get(table, table) for table in available_tables]
 
-            if table not in available_tables:
+            # Check if the table is in the available tables
+            translated_table = all_tables.get(table_name, table_name)
+
+            if translated_table not in available_tables:
                 # Handle case where selected table is occupied
-                return render(request, 'index.html', {'table_is_not_available': True, 'available_tables': available_tables_in_selected_language})
-            else:
-                # Convert date to display month name
-                month_name = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%B')
+                return render(request, 'index.html', {
+                    'table_is_not_available': True, 
+                    'available_tables': available_tables_in_selected_language
+                })
 
-                # Save the reservation
-                reservation = Reservation_main(user=request.user, date=date, time=time, people=people, table=table)
-                reservation.save()
+            occupied_tables = []
+            for table_name in available_tables_in_selected_language:
+                translated_table_name = all_tables.get(table_name, table_name)  # Translate table name if needed
+                table_obj = get_object_or_404(Tables, table_name=translated_table_name)
+                if table_obj.available == 0 or \
+                    (table_obj.date == date and 
+                        (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and 
+                        table_obj.time <= reservation_datetime.time())):
+                    occupied_tables.append(table_name)
 
-                # Sending email notification
-                subject = 'Table Reservation Confirmation'
-                message = f'{table} has been successfully reserved for {people} people at {time} on {month_name} {date}.'
-                from_email = 'foodzero.restaurant@gmail.com'
-                to_email = [request.user.email]  # Assuming user's email is stored in User model
+            if translated_table in occupied_tables:
+                # Remove all occupied tables from the list of available tables
+                for occupied_table in occupied_tables:
+                    available_tables_in_selected_language.remove(occupied_table)
 
-                send_mail(subject, message, from_email, to_email, fail_silently=False)
+                return render(request, 'index.html', {
+                    'table_is_not_available': True, 
+                    'available_tables': available_tables_in_selected_language
+                })
 
-                return render(request, 'index.html', {'success_reservation_modal': True})
+            # Convert date to display month name
+            month_name = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%B')
+
+            # Save the reservation
+            reservation = Reservation_main(user=request.user, date=date, time=time, people=people, table=translated_table)
+            reservation.save()
+
+            # Mark table as unavailable
+            table_obj.available = False
+            table_obj.date = date
+            table_obj.time = reservation_datetime.time()
+            table_obj.save()
+
+            # Sending email notification
+            subject = 'Table Reservation Confirmation'
+            message = f'{table_name} has been successfully reserved for {people} people at {time} on {month_name} {date}.'
+            from_email = 'foodzero.restaurant@gmail.com'
+            to_email = [request.user.email]  # Assuming user's email is stored in User model
+
+            send_mail(subject, message, from_email, to_email, fail_silently=False)
+
+            return render(request, 'index.html', {'success_reservation_modal': True})
         else:
             return HttpResponseRedirect('/sign_up/')
     else:
@@ -424,43 +453,72 @@ def reservation_from_contact(request):
         existing_reservation_start_time = reservation_datetime - datetime.timedelta(hours=2)
         existing_reservation_end_time = reservation_datetime + datetime.timedelta(hours=2)
 
+        # Check for existing reservations for both main and contact tables
         existing_reservations_main = Reservation_main.objects.filter(
-                date=date,
-                time__gte=existing_reservation_start_time,
-                time__lte=existing_reservation_end_time
-            ).values_list('table', flat=True)
+            date=date,
+            time__gte=existing_reservation_start_time.time(),
+            time__lte=existing_reservation_end_time.time()
+        ).values_list('table', flat=True)
 
         existing_reservations_contact = Reservation.objects.filter(
-                date=date,
-                time__gte=existing_reservation_start_time,
-                time__lte=existing_reservation_end_time
-            ).values_list('table', flat=True)
-        
+            date=date,
+            time__gte=existing_reservation_start_time.time(),
+            time__lte=existing_reservation_end_time.time()
+        ).values_list('table', flat=True)
+
         # Combine reserved tables from both types of reservations
         existing_reservations = list(existing_reservations_main) + list(existing_reservations_contact)
 
+        # Створення словника з українськими та англійськими назвами столиків
         all_tables = {
-                f'Столик №{i}': f'Table №{i}' for i in range(1, 7)
-            }
-
-        available_tables = list(set(all_tables) - set(existing_reservations))
-        available_tables.sort()
-
-            # Initialize dictionary for table translations
-        table_translations = {
-            'uk': {f'Столик №{i}': f'Столик №{i}' for i in range(1, 7)},
-            'en': {f'Столик №{i}': f'Table №{i}' for i in range(1, 7)}
+            f'Столик №{i}': f'Table №{i}' for i in range(1, 7)
         }
 
-        available_tables_in_selected_language = [table_translations[request.LANGUAGE_CODE].get(table, table) for table in available_tables]
+        translated_existing_reservations = [all_tables.get(t, t) for t in existing_reservations]
 
-        if User.objects.filter(email=email).exists() or UserProfile.objects.filter(phone_number=phone).exists():
-            # Handle case where email or phone number is already registered
-            return render(request, 'contact.html', {'user_exist': True})
-        
-        if table not in available_tables:
+        # Find available tables by subtracting reserved tables from all tables
+        available_tables = list(set(all_tables.values()) - set(translated_existing_reservations))
+        available_tables.sort()
+
+        # Initialize dictionary for table translations
+        table_translations = {
+            'uk': {v: k for k, v in all_tables.items()},
+            'en': {v: v for k, v in all_tables.items()}
+        }
+
+        # Get available tables in the selected language
+        language_code = get_language()
+        available_tables_in_selected_language = [table_translations[language_code].get(table, table) for table in available_tables]
+
+        # Check if the table is in the available tables
+        translated_table = all_tables.get(table, table)
+
+        if translated_table not in available_tables:
             # Handle case where selected table is occupied
-            return render(request, 'index.html', {'table_is_not_available': True, 'available_tables': available_tables_in_selected_language})
+            return render(request, 'index.html', {
+                'table_is_not_available': True, 
+                'available_tables': available_tables_in_selected_language
+            })
+
+        occupied_tables = []
+        for table_name in available_tables_in_selected_language:
+            translated_table_name = all_tables.get(table_name, table_name)  # Translate table name if needed
+            table_obj = get_object_or_404(Tables, table_name=translated_table_name)
+            if table_obj.available == 0 or \
+                (table_obj.date == date and 
+                    (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and 
+                    table_obj.time <= reservation_datetime.time())):
+                occupied_tables.append(table_name)
+
+        if translated_table in occupied_tables:
+            # Remove all occupied tables from the list of available tables
+            for occupied_table in occupied_tables:
+                available_tables_in_selected_language.remove(occupied_table)
+
+            return render(request, 'index.html', {
+                'table_is_not_available': True, 
+                'available_tables': available_tables_in_selected_language
+            })
         else:
             # Create a new reservation
             reservation = Reservation.objects.create(
@@ -489,8 +547,7 @@ def reservation_from_contact(request):
 
             send_mail(subject, message, from_email, to_email, fail_silently=False)
 
-            previous_url = request.META.get('HTTP_REFERER')
-            return HttpResponseRedirect(previous_url)
+            return render(request, 'contact.html', {'success_reservation_modal': True})
 
     return redirect(request.META.get('HTTP_REFERER'))
 
@@ -539,7 +596,6 @@ def crop_to_circle(image_path):
         return output
 
 @login_required(login_url='/home/')
-@csrf_exempt
 def profile_edit(request, username):
     user = get_object_or_404(User, username=username)
 
@@ -617,7 +673,6 @@ def profile_edit(request, username):
     
     return render(request, 'edit_profile.html', {'user_profile': user_profile, 'initial_data': initial_data, 'form': AvatarChangeForm(instance=user_profile, prefix='user_profile')})
 
-@csrf_exempt
 def delete_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation_main, id=reservation_id, user=request.user)
     reservation.delete()
@@ -629,7 +684,6 @@ def delete_reservation(request, reservation_id):
     return redirect(reverse('profile', args=[username]))
 
 @login_required
-@csrf_exempt
 def change_avatar(request):
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     username = request.user.username
@@ -641,7 +695,6 @@ def change_avatar(request):
 
     return render(request, 'edit_profile.html', {'form': AvatarChangeForm(instance=user_profile, prefix='user_profile')})
 
-@csrf_exempt
 def reset_password(request):
     if request.method == 'POST':
         form = PasswordResetForm(request.POST)
@@ -667,7 +720,6 @@ def reset_password(request):
     return render(request, 'password-recover.html', {'form': form})
 
 UserModel = get_user_model()
-@csrf_exempt
 def reset_password_confirm(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
@@ -693,7 +745,6 @@ def reset_password_confirm(request, uidb64, token):
         return render(request, 'password-recover.html', {'link_invalid': True})
 
 @login_required(login_url='/home/')
-@csrf_exempt
 def change_password(request):
     user=request.user
     if request.method == 'POST':
@@ -720,7 +771,6 @@ def change_password(request):
     return render(request, 'change_password.html')
 
 @login_required
-@csrf_exempt
 def delete_account(request):
     if request.method == 'POST':
         password = request.POST.get('password')
@@ -750,7 +800,6 @@ def table_status(request):
     context = {'tables': tables}
     return render(request, 'tables.html', context)
 
-@csrf_exempt
 def update_table_status(request, table_id):
     if request.method == 'POST':
         table = get_object_or_404(Tables, id=table_id)
@@ -787,7 +836,6 @@ def meal_list(request):
     return render(request, 'portfolio.html', context)
 
 @login_required
-@csrf_exempt
 def save_reservation_meals(request):
     if request.method == 'POST':
         meal_ids = request.POST.get('meal_ids', '').split(',')
@@ -819,7 +867,6 @@ def save_reservation_meals(request):
 
     return render(request, 'error.html', {'error': 'Invalid request method'})
 
-@csrf_exempt
 def save_review(request):
     if request.method == 'POST':
         meal_id = request.POST.get('meal_id')
