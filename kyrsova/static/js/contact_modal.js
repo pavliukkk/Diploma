@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     phoneInput.addEventListener('input', function (e) {
         const regex = /[^\d]/g;
-        phoneInput.value = phoneInput.value.replace(regex, '').substring(0, 10);
+        phoneInput.value = phoneInput.value.replace(regex, '').substring(0, 12);
     });
   
     // Event listener for time input to handle automatic replacement
