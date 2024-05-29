@@ -155,9 +155,9 @@
                                             <strong>{% trans 'Error!' %}</strong> {% trans 'Wrong password' %}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                                         </div>
-                                        {% elif activate_link_sent%}
+                                        {% elif password_changed %}
                                         <div class="alert alert-success alert-dismissible fade show text" style="margin: 20px 0; font-family: Lato, Roboto;">
-                                            <strong>{% trans 'Success!' %}</strong>{% trans ' Activation link sent. Please, check your email and activate your account.' %}
+                                            <strong>{% trans 'Success!' %}</strong>{% trans ' Your password was seccessfully changed' %}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                                         </div>
                                         {% endif %}
