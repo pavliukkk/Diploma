@@ -87,7 +87,7 @@ def register(request):
         token = default_token_generator.make_token(user)
 
         # Відправте електронний лист із посиланням для активації
-        activation_link = f"http://127.0.0.1:8000/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
         send_activation_email(email, activation_link)
 
         # Authenticate and log in the user
@@ -101,8 +101,8 @@ def register(request):
         return render(request, 'registration.html')
 
 def send_activation_email(email, activation_link):
-    subject = 'Активація акаунту на FoodZero'
-    message = f'Дякуємо за реєстрацію на FoodZero. Для активації акаунту перейдіть за посиланням: {activation_link}'
+    subject = _('Activation email subject')
+    message = _('Thank you for registering on FoodZero. To activate your account, please follow the link: %(activation_link)s') % {'activation_link': activation_link}
     from_email = 'foodzero.restaurant@gmail.com'
     recipient_list = [email]
     send_mail(subject, message, from_email, recipient_list, fail_silently=False)
@@ -118,7 +118,7 @@ def activation_email_view(request):
         token = default_token_generator.make_token(user)
 
         # Генерація посилання для активації
-        activation_link = f"http://127.0.0.1:8000/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
 
         # Відправлення електронного листа з посиланням для активації
         send_activation_email(email, activation_link)
@@ -416,7 +416,7 @@ def save_reservation(request):
 
             # Sending email notification
             subject = 'Table Reservation Confirmation'
-            message = f'{table_name} has been successfully reserved for {people} people at {time} on {month_name} {date}.'
+            message = f'{translated_table} has been successfully reserved for {people} at {time} on {month_name} {date}.\n Thank you for choosing us ❤️'
             from_email = 'foodzero.restaurant@gmail.com'
             to_email = [request.user.email]  # Assuming user's email is stored in User model
 
@@ -540,10 +540,10 @@ def reservation_from_contact(request):
 
             # Sending email notification
             subject = 'Table Reservation Confirmation'
-            if num_people == '1 Person':
+            if num_people == '1 Person' or num_people == '1 Людина':
                 message = f'Your table has been successfully reserved for 1 person at {time} on {month_name} {year}, {day}.\n Thank you for choosing us ❤️'
             else:
-                message = f'Your table has been successfully reserved for {num_people} people at {time} on {month_name} {year}, {day}.'
+                message = f'{translated_table} has been successfully reserved for {num_people} at {time} on {month_name} {date}.\n Thank you for choosing us ❤️'
 
             from_email = 'your_restaurant_email@example.com'
             to_email = [email]
@@ -669,8 +669,6 @@ def profile_edit(request, username):
                 return redirect('profile', username=user.username)
         # Перенаправлення на сторінку профілю
         return redirect('profile', username=request.user.username)
-    
-    
     
     return render(request, 'edit_profile.html', {'user_profile': user_profile, 'initial_data': initial_data, 'form': AvatarChangeForm(instance=user_profile, prefix='user_profile')})
 
@@ -864,9 +862,9 @@ def save_reservation_meals(request):
             return redirect('portfolio')
         else:
             # Якщо бронювання користувача не існує, повернути помилку або виконати потрібні дії
-            return render(request, 'error.html', {'error': 'User has no reservation'})
+            return render(request, 'portfolio.html', {'error': 'User has no reservation'})
 
-    return render(request, 'error.html', {'error': 'Invalid request method'})
+    return render(request, 'portfolio.html', {'error': 'Invalid request method'})
 
 def save_review(request):
     if request.method == 'POST':
