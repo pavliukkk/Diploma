@@ -732,11 +732,18 @@ def reset_password_confirm(request, uidb64, token):
             new_password1 = request.POST.get('password')
             new_password2 = request.POST.get('confirm_password')
             # Перевіряємо, чи введені паролі співпадають
-            if new_password1 == new_password2:
+            if new_password1 == new_password2 and not request.user.is_authenticated:
                 # Змінюємо пароль користувача тільки якщо вони співпадають
                 user.set_password(new_password1)
                 user.save()
                 return render(request, 'login.html', {'password_changed': True})
+            else:
+                # Змінюємо пароль користувача тільки якщо вони співпадають
+                user.set_password(new_password1)
+                user.save()
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+
+                return redirect('profile', username=request.user.username)
         else:
             form = SetPasswordForm(user)
         return render(request, 'reset_password_confirm.html', {'form': form, 'uidb64': uidb64, 'token': token})
