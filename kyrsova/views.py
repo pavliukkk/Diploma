@@ -101,8 +101,8 @@ def register(request):
         return render(request, 'registration.html')
 
 def send_activation_email(email, activation_link):
-    subject = _('Activation email subject')
-    message = _('Thank you for registering on FoodZero. To activate your account, please follow the link: %(activation_link)s') % {'activation_link': activation_link}
+    subject = 'Активація акаунту на FoodZero'
+    message = f'Дякуємо за реєстрацію на FoodZero. Для активації акаунту перейдіть за посиланням: {activation_link}'
     from_email = 'foodzero.restaurant@gmail.com'
     recipient_list = [email]
     send_mail(subject, message, from_email, recipient_list, fail_silently=False)
