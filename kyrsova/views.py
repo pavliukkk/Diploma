@@ -809,14 +809,18 @@ def table_status(request):
 def update_table_status(request, table_id):
     if request.method == 'POST':
         table = get_object_or_404(Tables, id=table_id)
-        if table.available:  # If changing to available
-            # Delete reservations associated with this table
-            Reservation_main.objects.filter(table=table).delete()
-        table.available = not table.available
         
         # Set time to Kyiv time zone
         kyiv_tz = tz('Europe/Kiev')
         kyiv_time = timezone.localtime(timezone.now(), kyiv_tz).time()
+        
+        # Check if the table is becoming unavailable
+        if table.available == 0:
+            # Delete reservations associated with this table
+            Reservation_main.objects.filter(table=table.table_name).delete()
+            table.available = 1
+        else:
+            table.available = 0
         
         table.date = timezone.now().date()  # Update date
         table.time = kyiv_time  # Update time to Kyiv time
