@@ -877,6 +877,7 @@ def save_reservation_meals(request):
 
     return render(request, 'portfolio.html', {'error': 'Invalid request method'})
 
+@login_required(login_url='/login/')
 def save_review(request):
     if request.method == 'POST':
         meal_id = request.POST.get('meal_id')
