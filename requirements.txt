@@ -17,6 +17,7 @@ click-plugins==1.1.1
 click-repl==0.3.0
 colorama==0.4.6
 cron-descriptor==1.4.3
+cryptography==42.0.8
 dj-database-url==2.1.0
 Django==5.0.6
 django-background-tasks==1.2.5
