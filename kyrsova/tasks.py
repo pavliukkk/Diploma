@@ -1,7 +1,6 @@
 import schedule
 import time
 from datetime import datetime
-from django.utils import timezone
 from .models import Reservation, Reservation_main, Tables
 
 def update_table_data():
@@ -13,7 +12,7 @@ def update_table_data():
         table.save()
 
 def delete_past_reservations():
-    current_datetime = timezone.now()
+    current_datetime = datetime.now()
 
     # Видаляємо бронювання, які мінули
     past_reservations_main = Reservation_main.objects.filter(date__lt=current_datetime.date())
