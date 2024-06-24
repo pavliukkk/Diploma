@@ -177,7 +177,7 @@
                   <ul class="portfolio__list-img">
                      {% for meal in meals %}
                          <li class="portfolio__item-img {% if meal.starters %}starter{% endif %} {% if meal.launch %}launch{% endif %} {% if meal.dinner %}dinner{% endif %} {% if meal.drinks %}drink{% endif %} {% if meal.sweets %}sweets{% endif %} {% if meal.fruits %}fruit{% endif %} {% if meal.alcohol %}alcohol{% endif %} {% if meal.photo_size == 'big' %} big-img {% elif meal.photo_size == 'middle' %}middle{% endif %}">
-                             <a class="portfolio__link" href="{% url 'soon' %}">
+                             <a class="portfolio__link">
                                  {% if preorder %}
                                      <button class="register__btn subtitle-big choose-btn">{% trans 'Choose' %}</button>
                                  {% endif %}
