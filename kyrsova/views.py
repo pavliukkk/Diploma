@@ -1,44 +1,30 @@
 import datetime
 from django.utils import timezone
-from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, get_user_model, update_session_auth_hash, logout
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.http import JsonResponse
-from django.contrib.auth import logout
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from .models import *
-from django.utils.http import urlsafe_base64_decode
-from django.http import HttpResponse
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib import messages
 from django.contrib.auth.tokens import default_token_generator
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
 from django.urls import reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import *
-from django.contrib.auth.forms import PasswordResetForm
-from django.contrib.auth.forms import SetPasswordForm
-from django.utils.encoding import smart_bytes
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.forms import PasswordResetForm, PasswordChangeForm, SetPasswordForm
 import calendar
 import re
-from django.db.models import Q
-from django.core.mail import send_mail
+from django.db.models import Avg
 from threading import Thread
 from .tasks import schedule_table_update
-from django.utils.translation import activate, check_for_language, gettext_lazy as _
+from django.utils.translation import activate, check_for_language, gettext_lazy as _, get_language
 from PIL import Image, ImageDraw
 from io import BytesIO
-from django.db.models import Avg, Count
-from django.utils.translation import activate, get_language
 from pytz import timezone as tz
-from django.contrib.auth import get_user_model
-from django.utils.encoding import force_str
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.hashers import check_password
-from django.contrib.auth import update_session_auth_hash
 
 @user_passes_test(lambda u: u.is_anonymous, login_url='/home/')
 def register(request):
@@ -87,7 +73,7 @@ def register(request):
         token = default_token_generator.make_token(user)
 
         # Відправте електронний лист із посиланням для активації
-        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"http://{request.get_host()}/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
         send_activation_email(email, activation_link)
 
         # Authenticate and log in the user
@@ -101,8 +87,8 @@ def register(request):
         return render(request, 'registration.html')
 
 def send_activation_email(email, activation_link):
-    subject = 'Активація акаунту на FoodZero'
-    message = f'Дякуємо за реєстрацію на FoodZero. Для активації акаунту перейдіть за посиланням: {activation_link}'
+    subject = _('Account activation on FoodZero')
+    message = _('Thank you for registering at FoodZero. To activate your account, please click the following link: {activation_link}').format(activation_link=activation_link)
     from_email = 'foodzero.restaurant@gmail.com'
     recipient_list = [email]
     send_mail(subject, message, from_email, recipient_list, fail_silently=False)
@@ -111,16 +97,12 @@ def activation_email_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
 
-        # Пошук користувача за адресою електронної пошти
         user = User.objects.get(email=email)
 
-        # Генерація токена для активації
         token = default_token_generator.make_token(user)
 
-        # Генерація посилання для активації
-        activation_link = f"https://foodzero.up.railway.app/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
+        activation_link = f"http://{request.get_host()}/activate/{urlsafe_base64_encode(force_bytes(user.pk))}/{token}/"
 
-        # Відправлення електронного листа з посиланням для активації
         send_activation_email(email, activation_link)
 
         return render(request, 'login.html', {'activate_link_sent': True})
@@ -135,16 +117,13 @@ def activate_account(request, uidb64, token):
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):
-        # Оновіть is_active в auth_user
         user.is_active = True
         user.save()
 
-        # Отримайте відповідний запис у UserProfile та оновіть його is_active
         user_profile = UserProfile.objects.get(user=user)
         user_profile.is_active = True
         user_profile.save()
 
-        # Здійсніть вхід
         return HttpResponseRedirect('/login/')
     else:
         return HttpResponse("This link is invalid.")
@@ -249,7 +228,7 @@ def admin_login(request):
                     return HttpResponseRedirect('/home/')
                 else:
                     # Користувач не є адміном, відмова в авторизації
-                    request.user = None
+
                     return render(request, 'admin_login.html', {'not_admin_error': True})
             else:
                 # Неправильний пароль
@@ -374,32 +353,27 @@ def save_reservation(request):
             # Check if the table is in the available tables
             translated_table = all_tables.get(table_name, table_name)
 
-            if translated_table not in available_tables:
-                # Handle case where selected table is occupied
-                return render(request, 'index.html', {
-                    'table_is_not_available': True, 
-                    'available_tables': available_tables_in_selected_language
-                })
-
             occupied_tables = []
             for table_name in available_tables_in_selected_language:
-                translated_table_name = all_tables.get(table_name, table_name)  # Translate table name if needed
+                translated_table_name = all_tables.get(table_name, table_name)  # Переклад назви стола за необхідності
                 table_obj = get_object_or_404(Tables, table_name=translated_table_name)
                 if table_obj.available == 0 or \
-                    (table_obj.date == date and 
-                        (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and 
-                        table_obj.time <= reservation_datetime.time())):
+                        (table_obj.date == date and
+                            (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and
+                            table_obj.time <= reservation_datetime.time())):
                     occupied_tables.append(table_name)
 
-            if translated_table in occupied_tables:
-                # Remove all occupied tables from the list of available tables
-                for occupied_table in occupied_tables:
-                    available_tables_in_selected_language.remove(occupied_table)
+            available_tables_in_selected_language = [
+                table for table in available_tables_in_selected_language if table not in occupied_tables
+            ]
 
+            # Перевірка, чи обраний стіл є в доступних столах
+            if translated_table not in available_tables_in_selected_language:
                 return render(request, 'index.html', {
-                    'table_is_not_available': True, 
+                    'table_is_not_available': True,
                     'available_tables': available_tables_in_selected_language
                 })
+
 
             # Convert date to display month name
             month_name = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%B')
@@ -496,30 +470,24 @@ def reservation_from_contact(request):
             # Handle case where email or phone number is already registered
             return render(request, 'contact.html', {'user_exist': True})
         
-        if translated_table not in available_tables:
-            # Handle case where selected table is occupied
-            return render(request, 'index.html', {
-                'table_is_not_available': True, 
-                'available_tables': available_tables_in_selected_language
-            })
-
         occupied_tables = []
         for table_name in available_tables_in_selected_language:
-            translated_table_name = all_tables.get(table_name, table_name)  # Translate table name if needed
+            translated_table_name = all_tables.get(table_name, table_name)  # Переклад назви стола за необхідності
             table_obj = get_object_or_404(Tables, table_name=translated_table_name)
             if table_obj.available == 0 or \
-                (table_obj.date == date and 
-                    (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and 
-                    table_obj.time <= reservation_datetime.time())):
+                    (table_obj.date == date and
+                        (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and
+                        table_obj.time <= reservation_datetime.time())):
                 occupied_tables.append(table_name)
 
-        if translated_table in occupied_tables:
-            # Remove all occupied tables from the list of available tables
-            for occupied_table in occupied_tables:
-                available_tables_in_selected_language.remove(occupied_table)
+        available_tables_in_selected_language = [
+            table for table in available_tables_in_selected_language if table not in occupied_tables
+        ]
 
+        # Перевірка, чи обраний стіл є в доступних столах
+        if translated_table not in available_tables_in_selected_language:
             return render(request, 'index.html', {
-                'table_is_not_available': True, 
+                'table_is_not_available': True,
                 'available_tables': available_tables_in_selected_language
             })
         else:
@@ -704,9 +672,14 @@ def reset_password(request):
                 uid = urlsafe_base64_encode(force_bytes(user.pk))
                 token = default_token_generator.make_token(user)
                 reset_link = f"http://{request.get_host()}/reset_password_confirm/{uid}/{token}/"
+                # Отримуємо переклади для повідомлення
+                subject = _("Reset Your Password")
+                message = _("Click the following link to reset your password: {reset_link}").format(reset_link=reset_link)
+                
+                # Відправка листа
                 send_mail(
-                    'Reset Your Password',
-                    f'Click the following link to reset your password: {reset_link}',
+                    subject,
+                    message,
                     'from@example.com',
                     [email],
                     fail_silently=False,
@@ -753,6 +726,7 @@ def reset_password_confirm(request, uidb64, token):
 @login_required(login_url='/home/')
 def change_password(request):
     user=request.user
+    
     if request.method == 'POST':
         if user is not None:
             old_password = request.POST.get('old_password')
@@ -818,6 +792,7 @@ def update_table_status(request, table_id):
         if table.available == 0:
             # Delete reservations associated with this table
             Reservation_main.objects.filter(table=table.table_name).delete()
+            Reservation.objects.filter(table=table.table_name).delete()
             table.available = 1
         else:
             table.available = 0
@@ -837,6 +812,8 @@ def meal_list(request):
             meal.avg_rating = str(avg_rating).replace(',', '.')  # Якщо так, замінюємо кому на крапку
         else:
             meal.avg_rating = None  # Якщо середній рейтинг None, зберігаємо його як None
+        if meal.description is None:
+            meal.description = None
 
     # Додаємо параметр preorder до контексту, якщо метод запиту POST
     context = {'meals': meals}
