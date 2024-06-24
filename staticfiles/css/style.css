@@ -5110,6 +5110,11 @@ body.portfolio_body{
 	cursor:pointer;
 	text-decoration:none
 }
+#preOrderButton{
+  display: flex;
+    margin: 0 auto;
+    margin-top: 50px;
+}
 .register__btn:hover, #preOrderButton:hover{
 	color:#fff;
 	background:#324500;
@@ -5179,6 +5184,12 @@ body.portfolio_body{
   #login .password-toggle-login{
     width: 40px;
     right: 30px;
+    top: 65%;
+  }
+}
+@media (max-width: 1440px){
+  #togglePassword .password-toggle-login{
+    top: 70%;
   }
 }
 #login, #successfull_reservation, #delete_reservation, #delete_account, #delete_account_confirm{

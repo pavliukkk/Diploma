@@ -5184,6 +5184,12 @@ body.portfolio_body{
   #login .password-toggle-login{
     width: 40px;
     right: 30px;
+    top: 65%;
+  }
+}
+@media (max-width: 1440px){
+  #togglePassword .password-toggle-login{
+    top: 70%;
   }
 }
 #login, #successfull_reservation, #delete_reservation, #delete_account, #delete_account_confirm{

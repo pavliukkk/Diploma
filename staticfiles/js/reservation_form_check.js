@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const saturdayError = document.getElementById('saturday_error');
     
     let currentDate = new Date().toISOString().split('T')[0];
+    const currentDateToday = new Date().toISOString().split('T')[0];
     let currentTime = new Date().toLocaleTimeString('en-US', { hour12: false }).slice(0, -3); // Видаляємо секунди з поточного часу
 
     // Set the minimum date and initial date value
@@ -17,21 +18,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     dateInput.setAttribute('min', currentDate);
     dateInput.value = currentDate;
-
-    // Function to set time to 19:30 if current time is after 19:30
-    function setTimeTo1930() {
-        if (timeInput.value > "19:30") {
-            timeInput.value = "11:00";
+    
+    function setTimeToValidRange() {
+        if (dateInput.value === currentDate) {
+            if (timeInput.value > "19:30") {
+                timeInput.value = "19:30";
+            } else if (timeInput.value < "11:00" && dateInput.value > currentDateToday) {
+                timeInput.value = "11:00";
+            }  
+            else if(timeInput.value < currentTime && dateInput.value === currentDateToday) {
+                timeInput.value = currentTime;
+            }   
+        } else {
+            if (timeInput.value < "11:00") {
+                timeInput.value = "11:00";
+            } else if (timeInput.value > "19:30") {
+                timeInput.value = "19:30";
+            }
         }
     }
 
-    if (currentTime < "11:00") {
-        timeInput.value = "11:00";
-    } else if (currentTime >= "19:30") {
+    if (currentTime >= "19:30") {
+        timeInput.setAttribute('min', "11:00");
         timeInput.value = "11:00";
     } else {
-        timeInput.value = currentTime;
-        setTimeTo1930(); // Check and set time to 19:30 if necessary
+        timeInput.setAttribute('min', currentTime);
+        timeInput.value = currentTime < "11:00" ? "11:00" : currentTime;
+        setTimeToValidRange(); // Check and set time to valid range if necessary
     }
 
     // Event listener for date input to check if Saturday is selected
@@ -46,6 +59,20 @@ document.addEventListener('DOMContentLoaded', function () {
             // If not Saturday, hide the error message
             saturdayError.style.display = 'none';
         }
+
+        // Reset the time input based on the selected date
+        if (dateInput.value === currentDate) {
+            timeInput.setAttribute('min', currentTime);
+            setTimeToValidRange();
+        } else {
+            timeInput.setAttribute('min', "11:00");
+            timeInput.value = "11:00";
+        }
+    });
+
+    // Event listener for time input to enforce valid range
+    timeInput.addEventListener('change', function (event) {
+        setTimeToValidRange();
     });
 
     // Event listener for form submission attempt

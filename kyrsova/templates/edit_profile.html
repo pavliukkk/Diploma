@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
    <meta name="msapplication-TileColor" content="#da532c">
    <meta name="theme-color" content="#ffffff">
-   <title>Join Us</title>
+   <title>{% trans 'Change your personal data' %}</title>
    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV9ZE40ZLC"></script>
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="jquery.js"></script>
@@ -183,9 +183,6 @@
                                </div>
                                <div class="errors">
                                    <p class="error-msg message" id="phone_number_error">{% trans 'Please enter a complete phone number' %}</p>
-                                   <p class="error-msg message" id="different_passwords">{% trans 'Passwords do not match' %}</p>
-                                   <p class="error-msg message" id="short_passwords">{% trans 'Passwords are too small' %}</p>
-                                   <p class="error-msg message" id="weak_password">{% trans 'Password must contain a letter' %}</p>
                                    <p class="error-msg message" id="fill_error">{% trans 'Please fill in all fields' %}</p>
                                    {% if user_exist %}
                                    <p class="error-msg message" id="user_exist" style="display: block;">
@@ -249,6 +246,9 @@
    <script src="{% static 'js/phoneMask.js' %}"></script>
    <script src="{% static 'js/inputmask.js' %}"></script>
    <script src="{% static 'js/photoImport.js' %}"></script>
+   <script src="{% static 'js/editProfile.js' %}"></script>
+  
+    
 </body>
 
 </html>

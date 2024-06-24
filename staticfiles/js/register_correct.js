@@ -18,18 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
     phoneNumberError.style.display = 'none';
 
     surnameField.addEventListener('input', function(event) {
-        // Використовуємо регулярний вираз для перевірки наявності цифр
-        if (/\d/.test(event.target.value)) {
-            // Якщо введено цифру, встановлюємо значення поля на попередній текст
-            event.target.value = event.target.value.slice(0, -1);
+        // Використовуємо регулярний вираз для перевірки наявності символів, які не є буквами
+        if (/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/.test(event.target.value)) {
+            // Якщо введено не букву, встановлюємо значення поля на попередній текст
+            event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
         }
     });
-
+    
     nameField.addEventListener('input', function(event) {
-        // Використовуємо регулярний вираз для перевірки наявності цифр
-        if (/\d/.test(event.target.value)) {
-            // Якщо введено цифру, встановлюємо значення поля на попередній текст
-            event.target.value = event.target.value.slice(0, -1);
+        // Використовуємо регулярний вираз для перевірки наявності символів, які не є буквами
+        if (/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/.test(event.target.value)) {
+            // Якщо введено не букву, встановлюємо значення поля на попередній текст
+            event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
         }
     });
 

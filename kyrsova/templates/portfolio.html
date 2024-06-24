@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@
    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
    <meta name="msapplication-TileColor" content="#da532c">
    <meta name="theme-color" content="#ffffff">
-   <title>Portfolio</title>
+   <title>{% trans 'Portfolio' %}</title>
    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV9ZE40ZLC"></script>
    <!-- Fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,7 +177,7 @@
                   <ul class="portfolio__list-img">
                      {% for meal in meals %}
                          <li class="portfolio__item-img {% if meal.starters %}starter{% endif %} {% if meal.launch %}launch{% endif %} {% if meal.dinner %}dinner{% endif %} {% if meal.drinks %}drink{% endif %} {% if meal.sweets %}sweets{% endif %} {% if meal.fruits %}fruit{% endif %} {% if meal.alcohol %}alcohol{% endif %} {% if meal.photo_size == 'big' %} big-img {% elif meal.photo_size == 'middle' %}middle{% endif %}">
-                             <a class="portfolio__link">
+                             <a class="portfolio__link" href="{% url 'soon' %}">
                                  {% if preorder %}
                                      <button class="register__btn subtitle-big choose-btn">{% trans 'Choose' %}</button>
                                  {% endif %}
@@ -216,7 +216,9 @@
                                              {% endif %}
                                          </div>
                                      </div>
+                                     {% if meal.description is not None %}
                                      <p class="portfolio__name-meal description">{{ meal.description }}</p>
+                                     {% endif %}
                                  </div>
                              </a>
                          </li>
@@ -295,9 +297,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.classList.remove('register__btn');
                 button.classList.add('reservation__form-btn', 'subtitle-big', 'choose');
                 button.textContent = 'Cancel';
+            }
+            if (button.textContent.trim() === 'Вибрати') {
+                button.classList.remove('register__btn');
+                button.classList.add('reservation__form-btn', 'subtitle-big', 'choose');
+                button.textContent = 'Скасувати';
+            }
+            if (button.textContent.trim() === 'Скасувати') {
+               button.classList.remove('reservation__form-btn', 'subtitle-big', 'choose');
+                button.classList.add('register__btn', 'subtitle-big');
+                button.textContent = 'Вибрати';
             } else {
                 button.classList.remove('reservation__form-btn', 'subtitle-big', 'choose');
-                button.classList.add('register__btn');
+                button.classList.add('register__btn', 'subtitle-big');
                 button.textContent = 'Choose';
             }
         });

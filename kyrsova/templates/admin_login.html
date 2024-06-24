@@ -27,7 +27,7 @@
    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
    <meta name="msapplication-TileColor" content="#da532c">
    <meta name="theme-color" content="#ffffff">
-   <title>Log in as administrator</title>
+   <title>{% trans 'Log in as administrator' %}</title>
    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV9ZE40ZLC"></script>
    <!-- Fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
                   </div>
                   <form action="{% url 'admin_login' %}" method="post" class="register_form" id="loginForm">
                      {% csrf_token %}
-                     <div class="login__form-inputs">
+                     <div class="login__form-inputs" id="login_grid">
                         <div class="editfields">
                            <div class="subtitle-big edit">{% trans 'Enter your email or phone number' %}</div>
                            <input class="reservation__form-input text" type="text" name="email" placeholder="{% trans 'Email or Phone Number' %}">

@@ -126,8 +126,7 @@
                      {% endif %}
                      <a href="tel:+86 852 346 000" class="nav__link">+86 852 346 000</a>
                      {% if request.user.is_authenticated %}
-                     <a href="{% url 'profile' username=user.username %}" class="nav__btn subtitle-big">{{ request.user.first_name }}
-                        {{request.user.last_name }}</a>
+                     <a href="{% url 'profile' username=user.username %}" class="nav__btn subtitle-big">{{ request.user.first_name }} {{request.user.last_name }}</a>
                      {% else %}
                      <a href="{% url 'login' %}" class="nav__btn subtitle-big">{% trans 'Log In' %}</a>
                      {% endif %}
@@ -469,7 +468,7 @@
        </p>
    </div>
    {% endif %}
-   {% if not request.user.is_authenticated %}
+   {% if not request.user.is_authenticated and request.path == "/" or request.path == "/home/" %}
    <div class="modal" id="login">
       <span class="close" onclick="closeModal()">&times;</span>
       <div class="container form-register__container">
@@ -488,7 +487,7 @@
                   <div class="reservation__form-input-passwords">
                      <div class="subtitle-big edit">{% trans 'Enter your password' %}</div>
                     <input class="reservation__form-input text" type="password" name="password" id="password" placeholder="{% trans 'Password' %}">
-                    <span id="togglePassword"><img class="password-toggle-login" style="top: 65%;" src="{% static 'img/hide_show_passwords/show_password.png' %}"></span>
+                    <span id="togglePassword"><img class="password-toggle-login" src="{% static 'img/hide_show_passwords/show_password.png' %}"></span>
                   </div>
                </div>
                <div class="errors">
@@ -512,7 +511,7 @@
    <script src="{% static 'js/main.min.js' %}"></script>
    <script src="{% static 'js/dropdown.js' %}"></script>
    <script src="{% static 'js/getLocation.js' %}"></script>
-   {% if not activate_link_sent %}
+   {% if not request.user.is_authenticated %}
    <script src="{% static 'js/loginModal.js' %}"></script>
    {% endif %}
    {% if request.user.is_authenticated %}
@@ -531,6 +530,14 @@
    <script src="{% static 'js/activationModal.js' %}"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
    <script src="{% static 'js/scrollAnimations.js' %}"></script>
+   <script>
+      function closeModal() {
+          const modal = document.getElementById('successfull_reservation');
+          const wrapper = document.getElementById("wrapper");
+          modal.style.display = 'none';
+          wrapper.classList.remove("blur");
+      }
+  </script>
 </body>
 
 </html>
