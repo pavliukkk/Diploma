@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 timeInput.value = "19:30";
             } else if (timeInput.value < "11:00" && dateInput.value > currentDateToday) {
                 timeInput.value = "11:00";
+            } else if (timeInput.value < "11:00" && dateInput.value === currentDateToday) {
+                timeInput.value = "11:00";
             } else if (timeInput.value < currentTime && dateInput.value === currentDateToday) {
                 timeInput.value = currentTime;
             }
