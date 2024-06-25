@@ -298,12 +298,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.classList.add('reservation__form-btn', 'subtitle-big', 'choose');
                 button.textContent = 'Cancel';
             }
-            if (button.textContent.trim() === 'Вибрати') {
+            else if (button.textContent.trim() === 'Вибрати') {
                 button.classList.remove('register__btn');
                 button.classList.add('reservation__form-btn', 'subtitle-big', 'choose');
                 button.textContent = 'Скасувати';
             }
-            if (button.textContent.trim() === 'Скасувати') {
+            else if (button.textContent.trim() === 'Скасувати') {
                button.classList.remove('reservation__form-btn', 'subtitle-big', 'choose');
                 button.classList.add('register__btn', 'subtitle-big');
                 button.textContent = 'Вибрати';
