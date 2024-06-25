@@ -945,7 +945,7 @@ msgstr ""
 msgid ""
 "Unable to complete the reservation. The entered phone number or email "
 "already belongs to a user"
-msgstr ""
+msgstr "Неможливо зробити бронювання. Введені контактні дані належать зареєстрованому користувачеві"
 
 #: .\kyrsova\templates\contact.html:356 .\kyrsova\templates\index.html:464
 msgid "Sorry"
@@ -963,10 +963,8 @@ msgstr ""
 "пізніше."
 
 #: .\kyrsova\templates\edit_profile.html:30
-#, fuzzy
-#| msgid "Change profile data"
 msgid "Change your personal data"
-msgstr "Редагувати дані"
+msgstr "Редагування профілю"
 
 #: .\kyrsova\templates\edit_profile.html:154
 #: .\kyrsova\templates\edit_profile.html:159
