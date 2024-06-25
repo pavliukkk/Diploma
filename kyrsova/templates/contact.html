@@ -351,7 +351,7 @@
             {% elif existing_reservation_user %}
             {% trans 'You cannot reserve this table as you have already reserved another one.' %}
             {% elif user_exist %}
-            Unable to complete the reservation. The entered phone number or email already belongs to a user
+            {% trans 'Unable to complete the reservation. The entered phone number or email already belongs to a user' %}
             {% elif existing_reservation %}
             <p class="title">{% trans 'Sorry' %}</p><br> {% trans 'You cannot reserve this table because he is already taken' %}
            {% else %}

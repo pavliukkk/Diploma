@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-22 11:57+0300\n"
+"POT-Creation-Date: 2024-06-25 00:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,8 @@ msgstr "Меню"
 
 #: .\kyrsova\templates\about.html:96 .\kyrsova\templates\activate_page.html:96
 #: .\kyrsova\templates\blog-post.html:96 .\kyrsova\templates\blog.html:30
-#: .\kyrsova\templates\blog.html:96 .\kyrsova\templates\change_password.html:96
+#: .\kyrsova\templates\blog.html:96 .\kyrsova\templates\blog.html:140
+#: .\kyrsova\templates\change_password.html:96
 #: .\kyrsova\templates\contact.html:96 .\kyrsova\templates\edit_profile.html:99
 #: .\kyrsova\templates\index.html:99 .\kyrsova\templates\login.html:96
 #: .\kyrsova\templates\menu.html:96
@@ -87,13 +88,13 @@ msgstr "Блог"
 #: .\kyrsova\templates\activate_page.html:102
 #: .\kyrsova\templates\activate_page.html:170
 #: .\kyrsova\templates\blog-post.html:98 .\kyrsova\templates\blog-post.html:101
-#: .\kyrsova\templates\blog-post.html:284 .\kyrsova\templates\blog.html:98
-#: .\kyrsova\templates\blog.html:101 .\kyrsova\templates\blog.html:321
+#: .\kyrsova\templates\blog-post.html:262 .\kyrsova\templates\blog.html:98
+#: .\kyrsova\templates\blog.html:101 .\kyrsova\templates\blog.html:315
 #: .\kyrsova\templates\change_password.html:98
 #: .\kyrsova\templates\change_password.html:101
 #: .\kyrsova\templates\change_password.html:201
 #: .\kyrsova\templates\contact.html:30 .\kyrsova\templates\contact.html:98
-#: .\kyrsova\templates\contact.html:101 .\kyrsova\templates\contact.html:303
+#: .\kyrsova\templates\contact.html:101 .\kyrsova\templates\contact.html:304
 #: .\kyrsova\templates\edit_profile.html:101
 #: .\kyrsova\templates\edit_profile.html:111
 #: .\kyrsova\templates\edit_profile.html:210 .\kyrsova\templates\index.html:101
@@ -262,19 +263,19 @@ msgstr ""
 "смаками, які говорять про традиції та досвід."
 
 #: .\kyrsova\templates\about.html:236 .\kyrsova\templates\contact.html:199
-#: .\kyrsova\templates\contact.html:252 .\kyrsova\templates\index.html:279
+#: .\kyrsova\templates\contact.html:253 .\kyrsova\templates\index.html:279
 #: .\kyrsova\templates\menu.html:242
 msgid "Make a Reservation"
 msgstr "Бронювання столика"
 
 #: .\kyrsova\templates\about.html:237 .\kyrsova\templates\contact.html:200
-#: .\kyrsova\templates\contact.html:253 .\kyrsova\templates\index.html:280
+#: .\kyrsova\templates\contact.html:254 .\kyrsova\templates\index.html:280
 #: .\kyrsova\templates\menu.html:243
 msgid "Get in touch with restaurant"
 msgstr "Зв'яжіться з рестораном"
 
 #: .\kyrsova\templates\about.html:243 .\kyrsova\templates\about.html:247
-#: .\kyrsova\templates\contact.html:259 .\kyrsova\templates\contact.html:263
+#: .\kyrsova\templates\contact.html:260 .\kyrsova\templates\contact.html:264
 #: .\kyrsova\templates\index.html:286 .\kyrsova\templates\index.html:290
 #: .\kyrsova\templates\menu.html:249 .\kyrsova\templates\menu.html:253
 msgid "Please select a date"
@@ -282,91 +283,91 @@ msgstr "Будь ласка, виберіть дату"
 
 #: .\kyrsova\templates\about.html:251 .\kyrsova\templates\about.html:253
 #: .\kyrsova\templates\contact.html:215 .\kyrsova\templates\contact.html:217
-#: .\kyrsova\templates\contact.html:267 .\kyrsova\templates\contact.html:269
+#: .\kyrsova\templates\contact.html:268 .\kyrsova\templates\contact.html:270
 #: .\kyrsova\templates\index.html:294 .\kyrsova\templates\index.html:296
 #: .\kyrsova\templates\menu.html:257 .\kyrsova\templates\menu.html:259
 msgid "1 Person"
 msgstr "1 людина"
 
 #: .\kyrsova\templates\about.html:254 .\kyrsova\templates\contact.html:218
-#: .\kyrsova\templates\contact.html:270 .\kyrsova\templates\index.html:297
+#: .\kyrsova\templates\contact.html:271 .\kyrsova\templates\index.html:297
 #: .\kyrsova\templates\menu.html:260
 msgid "2 People"
 msgstr "2 людині"
 
 #: .\kyrsova\templates\about.html:255 .\kyrsova\templates\contact.html:219
-#: .\kyrsova\templates\contact.html:271 .\kyrsova\templates\index.html:298
+#: .\kyrsova\templates\contact.html:272 .\kyrsova\templates\index.html:298
 #: .\kyrsova\templates\menu.html:261
 msgid "3 People"
 msgstr "3 людині"
 
 #: .\kyrsova\templates\about.html:256 .\kyrsova\templates\contact.html:220
-#: .\kyrsova\templates\contact.html:272 .\kyrsova\templates\index.html:299
+#: .\kyrsova\templates\contact.html:273 .\kyrsova\templates\index.html:299
 #: .\kyrsova\templates\menu.html:262
 msgid "4 People"
 msgstr "4 людині"
 
 #: .\kyrsova\templates\about.html:257 .\kyrsova\templates\contact.html:221
-#: .\kyrsova\templates\contact.html:273 .\kyrsova\templates\index.html:300
+#: .\kyrsova\templates\contact.html:274 .\kyrsova\templates\index.html:300
 #: .\kyrsova\templates\menu.html:263
 msgid "5 People"
 msgstr "5 людей"
 
 #: .\kyrsova\templates\about.html:258 .\kyrsova\templates\contact.html:222
-#: .\kyrsova\templates\contact.html:274 .\kyrsova\templates\index.html:301
+#: .\kyrsova\templates\contact.html:275 .\kyrsova\templates\index.html:301
 #: .\kyrsova\templates\menu.html:264
 msgid "6 People"
 msgstr "6 людей"
 
 #: .\kyrsova\templates\about.html:263 .\kyrsova\templates\about.html:266
 #: .\kyrsova\templates\contact.html:227 .\kyrsova\templates\contact.html:230
-#: .\kyrsova\templates\contact.html:279 .\kyrsova\templates\contact.html:282
+#: .\kyrsova\templates\contact.html:280 .\kyrsova\templates\contact.html:283
 #: .\kyrsova\templates\index.html:306 .\kyrsova\templates\index.html:309
 #: .\kyrsova\templates\menu.html:269 .\kyrsova\templates\menu.html:272
 msgid "Table №1"
 msgstr "Столик №1"
 
 #: .\kyrsova\templates\about.html:267 .\kyrsova\templates\contact.html:231
-#: .\kyrsova\templates\contact.html:283 .\kyrsova\templates\index.html:310
+#: .\kyrsova\templates\contact.html:284 .\kyrsova\templates\index.html:310
 #: .\kyrsova\templates\menu.html:273
 msgid "Table №2"
 msgstr "Столик №2"
 
 #: .\kyrsova\templates\about.html:268 .\kyrsova\templates\contact.html:232
-#: .\kyrsova\templates\contact.html:284 .\kyrsova\templates\index.html:311
+#: .\kyrsova\templates\contact.html:285 .\kyrsova\templates\index.html:311
 #: .\kyrsova\templates\menu.html:274
 msgid "Table №3"
 msgstr "Столик №3"
 
 #: .\kyrsova\templates\about.html:269 .\kyrsova\templates\contact.html:233
-#: .\kyrsova\templates\contact.html:285 .\kyrsova\templates\index.html:312
+#: .\kyrsova\templates\contact.html:286 .\kyrsova\templates\index.html:312
 #: .\kyrsova\templates\menu.html:275
 msgid "Table №4"
 msgstr "Столик №4"
 
 #: .\kyrsova\templates\about.html:270 .\kyrsova\templates\contact.html:234
-#: .\kyrsova\templates\contact.html:286 .\kyrsova\templates\index.html:313
+#: .\kyrsova\templates\contact.html:287 .\kyrsova\templates\index.html:313
 #: .\kyrsova\templates\menu.html:276
 msgid "Table №5"
 msgstr "Столик №5"
 
 #: .\kyrsova\templates\about.html:271 .\kyrsova\templates\contact.html:235
-#: .\kyrsova\templates\contact.html:287 .\kyrsova\templates\index.html:314
+#: .\kyrsova\templates\contact.html:288 .\kyrsova\templates\index.html:314
 #: .\kyrsova\templates\menu.html:277
 msgid "Table №6"
 msgstr "Столик №6"
 
-#: .\kyrsova\templates\about.html:275 .\kyrsova\templates\contact.html:242
-#: .\kyrsova\templates\contact.html:291 .\kyrsova\templates\index.html:321
+#: .\kyrsova\templates\about.html:275 .\kyrsova\templates\contact.html:243
+#: .\kyrsova\templates\contact.html:292 .\kyrsova\templates\index.html:321
 #: .\kyrsova\templates\menu.html:281
 msgid "Book Now"
 msgstr "Забронювати зараз"
 
 #: .\kyrsova\templates\about.html:293
 #: .\kyrsova\templates\activate_page.html:176
-#: .\kyrsova\templates\blog-post.html:291 .\kyrsova\templates\blog.html:328
+#: .\kyrsova\templates\blog-post.html:269 .\kyrsova\templates\blog.html:322
 #: .\kyrsova\templates\change_password.html:207
-#: .\kyrsova\templates\contact.html:310
+#: .\kyrsova\templates\contact.html:311
 #: .\kyrsova\templates\edit_profile.html:217 .\kyrsova\templates\index.html:415
 #: .\kyrsova\templates\login.html:216 .\kyrsova\templates\menu.html:299
 #: .\kyrsova\templates\password-recover.html:191
@@ -379,8 +380,8 @@ msgstr "Не пропустіть рецепт"
 
 #: .\kyrsova\templates\about.html:297
 #: .\kyrsova\templates\activate_page.html:148
-#: .\kyrsova\templates\blog-post.html:294 .\kyrsova\templates\blog.html:331
-#: .\kyrsova\templates\contact.html:208 .\kyrsova\templates\contact.html:314
+#: .\kyrsova\templates\blog-post.html:272 .\kyrsova\templates\blog.html:325
+#: .\kyrsova\templates\contact.html:208 .\kyrsova\templates\contact.html:315
 #: .\kyrsova\templates\edit_profile.html:177
 #: .\kyrsova\templates\edit_profile.html:221 .\kyrsova\templates\index.html:419
 #: .\kyrsova\templates\login.html:220 .\kyrsova\templates\menu.html:303
@@ -396,9 +397,9 @@ msgstr "Електронна пошта"
 
 #: .\kyrsova\templates\about.html:298
 #: .\kyrsova\templates\activate_page.html:181
-#: .\kyrsova\templates\blog-post.html:295 .\kyrsova\templates\blog.html:332
+#: .\kyrsova\templates\blog-post.html:273 .\kyrsova\templates\blog.html:326
 #: .\kyrsova\templates\change_password.html:212
-#: .\kyrsova\templates\contact.html:315
+#: .\kyrsova\templates\contact.html:316
 #: .\kyrsova\templates\edit_profile.html:222 .\kyrsova\templates\index.html:420
 #: .\kyrsova\templates\login.html:221 .\kyrsova\templates\menu.html:304
 #: .\kyrsova\templates\password-recover.html:196
@@ -411,9 +412,9 @@ msgstr "Підписатись"
 
 #: .\kyrsova\templates\about.html:300
 #: .\kyrsova\templates\activate_page.html:183
-#: .\kyrsova\templates\blog-post.html:297 .\kyrsova\templates\blog.html:334
+#: .\kyrsova\templates\blog-post.html:275 .\kyrsova\templates\blog.html:328
 #: .\kyrsova\templates\change_password.html:214
-#: .\kyrsova\templates\contact.html:317
+#: .\kyrsova\templates\contact.html:318
 #: .\kyrsova\templates\edit_profile.html:224 .\kyrsova\templates\index.html:422
 #: .\kyrsova\templates\login.html:223 .\kyrsova\templates\menu.html:306
 #: .\kyrsova\templates\password-recover.html:198
@@ -551,14 +552,227 @@ msgstr "Увійти"
 msgid "Blog-post"
 msgstr "Блог"
 
+#: .\kyrsova\templates\blog-post.html:140 .\kyrsova\templates\blog.html:268
+msgid "Three Ideas for Cooking Goat Meat at Home"
+msgstr "Три ідеї приготування козлятини в домашніх умовах"
+
+#: .\kyrsova\templates\blog-post.html:149
+msgid "October 17,2021"
+msgstr "Жовтень 17,2021"
+
+#: .\kyrsova\templates\blog-post.html:166
+msgid ""
+"Unraveling the potential of goat meat in home cooking opens a gateway to a "
+"diverse realm of culinary possibilities. Its distinct flavor profile and "
+"versatility make it an intriguing ingredient for those eager to explore "
+"beyond conventional meats. Here are three enticing methods to master the art "
+"of preparing goat meat at home"
+msgstr ""
+"Розкриття потенціалу козлятини в домашній кулінарії відкриває шлях до "
+"різноманітного царства кулінарних можливостей. Його виразний смаковий "
+"профіль і універсальність роблять його інтригуючим інгредієнтом для тих, хто "
+"прагне досліджувати не тільки традиційне м’ясо. Ось три привабливі способи "
+"оволодіти мистецтвом приготування козлятини вдома"
+
+#: .\kyrsova\templates\blog-post.html:172
+msgid ""
+"Slow-Cooked Curry: Embrace the rich flavors of goat meat with a slow-cooked "
+"curry. Simmer tender goat pieces in a blend of aromatic spices, coconut "
+"milk, and tomatoes, creating a dish that promises a meltingly tender texture "
+"and a symphony of savory tastes."
+msgstr ""
+"Каррі, що готується повільно: відчуйте насичений смак козлятини з карі, що "
+"готується повільно. Тушкуйте ніжні шматочки козлятини в суміші ароматних "
+"спецій, кокосового молока та помідорів, створюючи страву, яка обіцяє "
+"неймовірно ніжну текстуру та симфонію пікантних смаків."
+
+#: .\kyrsova\templates\blog-post.html:177
+msgid ""
+" Spiced Goat Biriyani: Dive into the world of aromatic spices by preparing a "
+"flavorful goat biriyani. Layer marinated goat meat with fragrant basmati "
+"rice, caramelized onions, and a medley of spices, creating a dish that&#8217;"
+"s a feast for the senses, with each bite offering an explosion of taste and "
+"aroma."
+msgstr ""
+"Приправлений козячим біріяні: пориньте у світ ароматних спецій, приготувавши "
+"ароматний козячий біріяні. Покладіть мариноване козяче м’ясо з ароматним "
+"рисом басматі, карамелізованою цибулею та сумішшю спецій, створюючи страву, "
+"яка стане справжньою справою для почуттів, з кожним укусом, який пропонує "
+"вибух смаку та аромату."
+
+#: .\kyrsova\templates\blog-post.html:181
+msgid ""
+"Grilled Herb-Marinated Skewers: Elevate your dining experience by grilling "
+"marinated goat chunks on skewers. Infuse the meat with a blend of fresh "
+"herbs, garlic, and olive oil before grilling, resulting in succulent, "
+"charred edges and a burst of herbaceous flavors."
+msgstr ""
+"Смажені на грилі мариновані травами шашлики: покращте враження від обіду, "
+"смаживши мариновані шматки козлятини на шампурах. Наповніть м’ясо сумішшю "
+"свіжих трав, часнику та оливкової олії перед смаженням, щоб отримати "
+"соковиті, обвуглені краї та сплеск трав’янистих смаків."
+
+#: .\kyrsova\templates\blog-post.html:184
+msgid "Tags:"
+msgstr "Теги:"
+
+#: .\kyrsova\templates\blog-post.html:185
+msgid "Design"
+msgstr "Дизайн"
+
+#: .\kyrsova\templates\blog-post.html:186
+msgid "Photography"
+msgstr "Фотографія"
+
+#: .\kyrsova\templates\blog-post.html:187
+msgid "Images"
+msgstr "Світлини"
+
+#: .\kyrsova\templates\blog-post.html:188
+msgid "Video"
+msgstr "Відео"
+
+#: .\kyrsova\templates\blog-post.html:189
+msgid "Music"
+msgstr "Музика"
+
+#: .\kyrsova\templates\blog-post.html:190
+msgid "Travel"
+msgstr "Подорож"
+
+#: .\kyrsova\templates\blog-post.html:196
+msgid ""
+"This recipe is my personal favorite! I&#8217;m always amazed by how the deep "
+"and robust flavors of goat meat blend with the spices. Each culinary step is "
+"a passionate process that turns ordinary cooking into a flavorful adventure. "
+"Making this dish isn&#8217;t just about cooking; it&#8217;s a mantra of "
+"culinary dedication and finding joy in every culinary achievement."
+msgstr ""
+"Цей рецепт мій особистий улюблений! Мене завжди вражає те, як глибокий і "
+"міцний смак козлятини поєднується зі спеціями. Кожен кулінарний крок — це "
+"пристрасний процес, який перетворює звичайне приготування їжі на ароматну "
+"пригоду. Приготування цієї страви – це не просто приготування; це мантра "
+"відданості кулінарії та пошуку радості в кожному кулінарному досягненні."
+
+#: .\kyrsova\templates\blog-post.html:210
+#: .\kyrsova\templates\blog-post.html:234 .\kyrsova\templates\blog.html:155
+#: .\kyrsova\templates\blog.html:179 .\kyrsova\templates\blog.html:202
+#: .\kyrsova\templates\blog.html:227 .\kyrsova\templates\blog.html:252
+#: .\kyrsova\templates\blog.html:277 .\kyrsova\templates\index.html:229
+#: .\kyrsova\templates\index.html:253
+msgid "Fashion"
+msgstr "В тренді"
+
+#: .\kyrsova\templates\blog-post.html:218 .\kyrsova\templates\blog.html:163
+#: .\kyrsova\templates\index.html:237
+msgid "October 15,2023"
+msgstr "Жовтень 15,2023"
+
+#: .\kyrsova\templates\blog-post.html:224 .\kyrsova\templates\blog.html:169
+#: .\kyrsova\templates\index.html:243
+msgid "Fruit and vegetables and protection against diseases"
+msgstr "Фрукти та овочі та захист від хвороб"
+
+#: .\kyrsova\templates\blog-post.html:226 .\kyrsova\templates\blog.html:171
+#: .\kyrsova\templates\index.html:245
+msgid ""
+"Nature&#8217;s Defense: How Fruits and Vegetables Shield Against Diseases."
+msgstr "Захист природи: як фрукти та овочі захищають від хвороб."
+
+#: .\kyrsova\templates\blog-post.html:227
+#: .\kyrsova\templates\blog-post.html:250 .\kyrsova\templates\blog.html:172
+#: .\kyrsova\templates\blog.html:195 .\kyrsova\templates\blog.html:220
+#: .\kyrsova\templates\blog.html:245 .\kyrsova\templates\blog.html:270
+#: .\kyrsova\templates\blog.html:295 .\kyrsova\templates\index.html:246
+#: .\kyrsova\templates\index.html:269
+msgid "Read More"
+msgstr "Детальніше"
+
+#: .\kyrsova\templates\blog-post.html:242 .\kyrsova\templates\blog.html:187
+#: .\kyrsova\templates\index.html:261
+msgid "October 17,2023"
+msgstr "Жовтень 17,2023"
+
+#: .\kyrsova\templates\blog-post.html:248 .\kyrsova\templates\blog.html:193
+#: .\kyrsova\templates\index.html:267
+msgid "Asparagus Spring Salad with Rocket, Goat&#8217;s Cheese"
+msgstr "Весняний салат зі спаржі з рукколою, козлятиною"
+
+#: .\kyrsova\templates\blog-post.html:249 .\kyrsova\templates\blog.html:194
+#: .\kyrsova\templates\index.html:268
+msgid ""
+"Asparagus Delight: Spring Salad Infused with Rocket and Goat&#8217;s Cheese."
+msgstr "Насолода зі спаржею: весняний салат із рукколою та козячим сиром."
+
+#: .\kyrsova\templates\blog.html:141
+msgid "It is easy way to create your beatiful blog for daily"
+msgstr "Це простий спосіб створити свій красивий щоденний блог"
+
+#: .\kyrsova\templates\blog.html:212
+msgid "January 17,2023"
+msgstr "Січень 17,2023"
+
+#: .\kyrsova\templates\blog.html:218
+msgid "The Best Style of Dough for Dumplings"
+msgstr "Найкраще тісто для пельменів"
+
+#: .\kyrsova\templates\blog.html:219
+msgid ""
+"Discovering the perfect dough for dumplings involves a delicate balance of "
+"textures."
+msgstr ""
+"Дослідження ідеального тіста для пельменів передбачає делікатний баланс "
+"текстур."
+
+#: .\kyrsova\templates\blog.html:237
+msgid "May 12,2023"
+msgstr "Травень 12,2023"
+
+#: .\kyrsova\templates\blog.html:243
+msgid "7 Reasons to Start Your Day With Lemon Water"
+msgstr "7 причин почати день з води з лимоном"
+
+#: .\kyrsova\templates\blog.html:244
+msgid ""
+"Starting your day with a glass of lemon water isn&#8217;t just a trend "
+"it&#8217;s a holistic health choice."
+msgstr ""
+"Починати день зі склянки води з лимоном — це не просто тренд, це цілісний "
+"вибір здоров’я."
+
+#: .\kyrsova\templates\blog.html:262
+msgid "June 01,2023"
+msgstr "Червень 01,2023"
+
+#: .\kyrsova\templates\blog.html:269
+msgid ""
+"Cooking goat meat at home opens doors to a world of diverse culinary "
+"experiences."
+msgstr ""
+"Приготування козлятини в домашніх умовах відкриває двері у світ "
+"різноманітних кулінарних вражень."
+
+#: .\kyrsova\templates\blog.html:287
+msgid "February 28,2023"
+msgstr "Лютий 28, 2023"
+
+#: .\kyrsova\templates\blog.html:293
+msgid "12 Sparkling Wines We&#8217;re Loving This Summer"
+msgstr "12 ігристих вин, які ми любимо цього літа"
+
+#: .\kyrsova\templates\blog.html:294
+msgid ""
+"Amidst the summer heat, savoring a glass of sparkling wine adds "
+"effervescence to any occasion."
+msgstr ""
+"Серед літньої спеки келих ігристого вина додає шипучості будь-якій події."
+
 #: .\kyrsova\templates\change_password.html:32
 #: .\kyrsova\templates\change_password.html:185
 #: .\kyrsova\templates\profile.html:149
 #: .\kyrsova\templates\reset_password_confirm.html:160
-#, fuzzy
-#| msgid "Enter your password"
 msgid "Change password"
-msgstr "Введіть пароль"
+msgstr "Зміна паролю"
 
 #: .\kyrsova\templates\change_password.html:126
 #: .\kyrsova\templates\profile.html:107
@@ -692,44 +906,56 @@ msgstr "Ім'я"
 msgid "Last Name"
 msgstr "Прізвище"
 
-#: .\kyrsova\templates\contact.html:241 .\kyrsova\templates\index.html:319
+#: .\kyrsova\templates\contact.html:241
+#: .\kyrsova\templates\edit_profile.html:185
+#: .\kyrsova\templates\registration.html:168
+msgid "Please enter a complete phone number"
+msgstr "Будь ласка, допишіть свій номер"
+
+#: .\kyrsova\templates\contact.html:242 .\kyrsova\templates\index.html:319
 msgid "We don&#8217;t work on Saturday. Please, choose another day"
 msgstr "Ми не працюємо по суботах. Будь ласка, виберіть інший день"
 
-#: .\kyrsova\templates\contact.html:340 .\kyrsova\templates\index.html:445
+#: .\kyrsova\templates\contact.html:341 .\kyrsova\templates\index.html:445
 msgid "The order has been successfully placed! We will be glad to see you"
 msgstr "Замовлення успішно оформлено! Будемо раді Вас бачити"
 
-#: .\kyrsova\templates\contact.html:342 .\kyrsova\templates\index.html:453
+#: .\kyrsova\templates\contact.html:343 .\kyrsova\templates\index.html:453
 msgid "Sorry for the inconvenience!"
 msgstr "Вибачте за незручності!"
 
-#: .\kyrsova\templates\contact.html:343 .\kyrsova\templates\index.html:454
+#: .\kyrsova\templates\contact.html:344 .\kyrsova\templates\index.html:454
 msgid " This table is taken. "
 msgstr "Столик занятий"
 
-#: .\kyrsova\templates\contact.html:343 .\kyrsova\templates\index.html:454
+#: .\kyrsova\templates\contact.html:344 .\kyrsova\templates\index.html:454
 msgid "You can choose another table. "
 msgstr "Ви можете вибрати інший столик"
 
-#: .\kyrsova\templates\contact.html:344 .\kyrsova\templates\index.html:455
+#: .\kyrsova\templates\contact.html:345 .\kyrsova\templates\index.html:455
 msgid "Here is the list of available ones:"
 msgstr "Ось список доступних:"
 
-#: .\kyrsova\templates\contact.html:351 .\kyrsova\templates\index.html:462
+#: .\kyrsova\templates\contact.html:352 .\kyrsova\templates\index.html:462
 msgid "You cannot reserve this table as you have already reserved another one."
 msgstr ""
 "Ви не можете забронювати цей столик, оскільки ви вже забронювали інший."
 
-#: .\kyrsova\templates\contact.html:355 .\kyrsova\templates\index.html:464
+#: .\kyrsova\templates\contact.html:354
+msgid ""
+"Unable to complete the reservation. The entered phone number or email "
+"already belongs to a user"
+msgstr ""
+
+#: .\kyrsova\templates\contact.html:356 .\kyrsova\templates\index.html:464
 msgid "Sorry"
 msgstr "Вибачте"
 
-#: .\kyrsova\templates\contact.html:355 .\kyrsova\templates\index.html:464
+#: .\kyrsova\templates\contact.html:356 .\kyrsova\templates\index.html:464
 msgid "You cannot reserve this table because he is already taken"
 msgstr "Ви не можете забронювати цей столик, оскільки він вже заброньований."
 
-#: .\kyrsova\templates\contact.html:357 .\kyrsova\templates\index.html:466
+#: .\kyrsova\templates\contact.html:358 .\kyrsova\templates\index.html:466
 msgid ""
 "Sorry, there are no available tables at the moment. Please try again later."
 msgstr ""
@@ -775,11 +1001,6 @@ msgstr "Введіть номер телефону"
 #: .\kyrsova\templates\edit_profile.html:181
 msgid "Phone Number"
 msgstr "Номер телефону"
-
-#: .\kyrsova\templates\edit_profile.html:185
-#: .\kyrsova\templates\registration.html:168
-msgid "Please enter a complete phone number"
-msgstr "Будь ласка, допишіть свій номер"
 
 #: .\kyrsova\templates\edit_profile.html:189
 #: .\kyrsova\templates\registration.html:174
@@ -862,40 +1083,6 @@ msgstr "Відмінний кухар"
 #: .\kyrsova\templates\index.html:212
 msgid "Mastering Culinary Artistry: Unveiling the Excellence of Cooking"
 msgstr "Оволодіння кулінарним мистецтвом: розкриття досконалості кулінарії"
-
-#: .\kyrsova\templates\index.html:229 .\kyrsova\templates\index.html:253
-msgid "Fashion"
-msgstr "В тренді"
-
-#: .\kyrsova\templates\index.html:237
-msgid "October 15,2023"
-msgstr "Жовтень 15,2023"
-
-#: .\kyrsova\templates\index.html:243
-msgid "Fruit and vegetables and protection against diseases"
-msgstr "Фрукти та овочі та захист від хвороб"
-
-#: .\kyrsova\templates\index.html:245
-msgid ""
-"Nature&#8217;s Defense: How Fruits and Vegetables Shield Against Diseases."
-msgstr "Захист природи: як фрукти та овочі захищають від хвороб."
-
-#: .\kyrsova\templates\index.html:246 .\kyrsova\templates\index.html:269
-msgid "Read More"
-msgstr "Детальніше"
-
-#: .\kyrsova\templates\index.html:261
-msgid "October 17,2023"
-msgstr "Жовтень 17,2023"
-
-#: .\kyrsova\templates\index.html:267
-msgid "Asparagus Spring Salad with Rocket, Goat&#8217;s Cheese"
-msgstr "Весняний салат зі спаржі з рукколою, козлятиною"
-
-#: .\kyrsova\templates\index.html:268
-msgid ""
-"Asparagus Delight: Spring Salad Infused with Rocket and Goat&#8217;s Cheese."
-msgstr "Насолода зі спаржею: весняний салат із рукколою та козячим сиром."
 
 #: .\kyrsova\templates\index.html:330
 msgid "Calories Energy Balance"
@@ -1315,18 +1502,33 @@ msgstr ""
 "Дякуємо за реєстрацію на FoodZero. Для активації акаунту перейдіть за "
 "посиланням: {activation_link}"
 
-#: .\kyrsova\views.py:687
+#: .\kyrsova\views.py:676
 msgid "Reset Your Password"
 msgstr "Скидання паролю"
 
-#: .\kyrsova\views.py:688
+#: .\kyrsova\views.py:677
 #, python-brace-format
 msgid "Click the following link to reset your password: {reset_link}"
 msgstr "Натисніть на посилання для скидання паролю: {reset_link}"
 
-#: .\kyrsova\views.py:901
+#: .\kyrsova\views.py:890
 msgid "StatusMsg"
 msgstr ""
+
+#~ msgid "Related Posts"
+#~ msgstr "Пов'язані дописи"
+
+#, fuzzy
+#~| msgid "Asparagus Spring Salad with Rocket, Goat&#8217;s Cheese"
+#~ msgid "Asparagus Spring Salad with Rocket, Goat"
+#~ msgstr "Весняний салат зі спаржі з рукколою, козлятиною"
+
+#, fuzzy
+#~| msgid ""
+#~| "Asparagus Delight: Spring Salad Infused with Rocket and Goat&#8217;s "
+#~| "Cheese."
+#~ msgid "Asparagus Delight: Spring Salad Infused with Rocket and Goat"
+#~ msgstr "Насолода зі спаржею: весняний салат із рукколою та козячим сиром."
 
 #, fuzzy
 #~| msgid "Recover Password"

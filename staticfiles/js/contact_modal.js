@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const successModal = document.getElementById('successfull_reservation');
     const reservationForm = document.querySelector('.reservation__form');
-    const dateInput = reservationForm.querySelector('input[name="date"]');
-    const timeInput = reservationForm.querySelector('input[name="time"]');
+    const dateInput = reservationForm.querySelector('input[type="date"]');
+    const timeInput = reservationForm.querySelector('input[type="time"]');
     const nameField = reservationForm.querySelector('input[name="first_name"]');
     const surnameField = reservationForm.querySelector('input[name="last_name"]');
-    const phoneNumberField = reservationForm.querySelector('input[name="phone"]');
+    const phoneNumberField = reservationForm.querySelector('input[name="phone_number"]');
     const wrapper = document.getElementById('wrapper');
     const currentPage = window.location.href;
     const errorMessages = document.querySelectorAll('.error-msg');
     const saturdayError = document.getElementById("saturday_error");
-    const phoneError = document.getElementById("phone_number_error");
-    const submitButton = document.getElementById('bookNowBtn');
 
     let currentDate = new Date().toISOString().split('T')[0];
     const currentDateToday = new Date().toISOString().split('T')[0];
@@ -38,16 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     dateInput.setAttribute('min', currentDate);
     dateInput.value = currentDate;
 
-    // Function to set time to valid range
+    // Function to set time to 11:00 if necessary
     function setTimeToValidRange() {
         if (dateInput.value === currentDate) {
             if (timeInput.value > "19:30") {
                 timeInput.value = "19:30";
             } else if (timeInput.value < "11:00" && dateInput.value > currentDateToday) {
                 timeInput.value = "11:00";
-            } else if (timeInput.value < currentTime && dateInput.value === currentDateToday) {
+            }  
+            else if(timeInput.value < currentTime && dateInput.value === currentDateToday) {
                 timeInput.value = currentTime;
-            }
+            }   
         } else {
             if (timeInput.value < "11:00") {
                 timeInput.value = "11:00";
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Set initial time value based on conditions
+    // Set the initial time value based on conditions
     if (currentTime >= "19:30") {
         timeInput.setAttribute('min', "11:00");
         timeInput.value = "11:00";
@@ -113,21 +112,25 @@ document.addEventListener("DOMContentLoaded", function () {
         const containsMaskChar = phoneNumber.indexOf('_') !== -1;
 
         if (containsMaskChar) {
-            phoneError.style.display = 'none';
+            phoneNumberError.style.display = 'none';
         } else {
-            phoneError.style.display = 'none';
+            phoneNumberError.style.display = 'none';
         }
 
         return !containsMaskChar;
     }
 
-    submitButton.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default form submission
+    document.querySelectorAll(".close").forEach(function (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    });
 
+    window.addEventListener("click", closeOnOutsideClick);
+
+    reservationForm.addEventListener('submit', function (event) {
         currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
-        const firstName = nameField.value.trim();
-        const lastName = surnameField.value.trim();
-        const email = reservationForm.querySelector('input[name="email"]').value.trim();
+        const firstName = reservationForm.querySelector('input[name="first_name"]').value;
+        const lastName = reservationForm.querySelector('input[name="last_name"]').value;
+        const email = reservationForm.querySelector('input[name="email"]').value;
         const phone = validatePhoneNumber();
         const date = dateInput.value;
         const time = timeInput.value;
@@ -136,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstName || !lastName || !email || !phone || !date || !time || !currentPage.includes('/contact/')) {
             errorMessage.style.display = "block";
+            event.preventDefault();
         } else {
             errorMessage.style.display = "none";
 
@@ -144,17 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (isSaturday) {
                 saturdayError.style.display = "block";
+                event.preventDefault();
             } else {
                 saturdayError.style.display = "none";
-                // If all validations pass, submit the form
-                reservationForm.submit();
             }
         }
     });
-
-    document.querySelectorAll(".close").forEach(function (closeBtn) {
-        closeBtn.addEventListener("click", closeModal);
-    });
-
-    window.addEventListener("click", closeOnOutsideClick);
 });

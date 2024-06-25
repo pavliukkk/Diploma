@@ -1,4 +1,5 @@
 import datetime
+from datetime import datetime, timedelta
 from django.utils import timezone
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.csrf import csrf_exempt
@@ -296,11 +297,11 @@ def save_reservation(request):
             table_name = request.POST.get('table')
 
             # Convert date to datetime object
-            reservation_datetime = datetime.datetime.strptime(date + ' ' + time, '%Y-%m-%d %H:%M')
+            reservation_datetime = datetime.strptime(date + ' ' + time, '%Y-%m-%d %H:%M')
 
             # Calculate start and end times for the existing reservations within the 2-hour window
-            existing_reservation_start_time = reservation_datetime - datetime.timedelta(hours=2)
-            existing_reservation_end_time = reservation_datetime + datetime.timedelta(hours=2)
+            existing_reservation_start_time = reservation_datetime - timedelta(hours=2)
+            existing_reservation_end_time = reservation_datetime + timedelta(hours=2)
 
             # Check for existing reservations for both main and contact tables
             existing_reservations_main = Reservation_main.objects.filter(
@@ -329,7 +330,7 @@ def save_reservation(request):
                 # Handle case where selected table is already reserved by the user
                 return render(request, 'index.html', {'existing_reservation_user': True})
 
-            # Створення словника з українськими та англійськими назвами столиків
+            # Create a dictionary with Ukrainian and English table names
             all_tables = {
                 f'Столик №{i}': f'Table №{i}' for i in range(1, 7)
             }
@@ -348,41 +349,46 @@ def save_reservation(request):
 
             # Get available tables in the selected language
             language_code = get_language()
-            available_tables_in_selected_language = [table_translations[language_code].get(table, table) for table in available_tables]
+            available_tables_in_selected_language = [table_translations.get(table, table) for table in available_tables]
 
-            # Check if the table is in the available tables
+            # Check if the selected table is available
             translated_table = all_tables.get(table_name, table_name)
 
+            # Get occupied tables in the selected language
             occupied_tables = []
             for table_name in available_tables_in_selected_language:
-                translated_table_name = all_tables.get(table_name, table_name)  # Переклад назви стола за необхідності
+                translated_table_name = all_tables.get(table_name, table_name)
                 table_obj = get_object_or_404(Tables, table_name=translated_table_name)
                 if table_obj.available == 0 or \
-                        (table_obj.date == date and
-                            (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and
-                            table_obj.time <= reservation_datetime.time())):
+                   (table_obj.date == date and table_obj.time == time):
                     occupied_tables.append(table_name)
 
+            # Remove occupied tables from available list
             available_tables_in_selected_language = [
                 table for table in available_tables_in_selected_language if table not in occupied_tables
             ]
+            def translate_table_name(table_name, target_language):
+                return table_translations[target_language].get(table_name, table_name)
 
-            # Перевірка, чи обраний стіл є в доступних столах
+            # Translate available tables to the selected language
+            translated_tables = [translate_table_name(table, language_code) for table in available_tables_in_selected_language]
+
+            # Check if the selected table is still available
             if translated_table not in available_tables_in_selected_language:
                 return render(request, 'index.html', {
                     'table_is_not_available': True,
-                    'available_tables': available_tables_in_selected_language
+                    'available_tables': translated_tables
                 })
 
-
             # Convert date to display month name
-            month_name = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%B')
+            month_name = reservation_datetime.strftime('%B')
 
             # Save the reservation
             reservation = Reservation_main(user=request.user, date=date, time=time, people=people, table=translated_table)
             reservation.save()
 
-            # Mark table as unavailable
+            # Mark the table as unavailable
+            table_obj = get_object_or_404(Tables, table_name=translated_table)
             table_obj.available = False
             table_obj.date = date
             table_obj.time = reservation_datetime.time()
@@ -390,7 +396,7 @@ def save_reservation(request):
 
             # Sending email notification
             subject = 'Table Reservation Confirmation'
-            message = f'{translated_table} has been successfully reserved for {people} at {time} on {month_name} {date}.\n Thank you for choosing us ❤️'
+            message = f'{translated_table} has been successfully reserved for {people} at {time} on {month_name} {date}.\nThank you for choosing us ❤️'
             from_email = 'foodzero.restaurant@gmail.com'
             to_email = [request.user.email]  # Assuming user's email is stored in User model
 
@@ -421,11 +427,11 @@ def reservation_from_contact(request):
         table = request.POST.get('table')
 
         # Convert date to datetime object
-        reservation_datetime = datetime.datetime.strptime(date + ' ' + time, '%Y-%m-%d %H:%M')
+        reservation_datetime = datetime.strptime(date + ' ' + time, '%Y-%m-%d %H:%M')
 
         # Calculate start and end times for the existing reservations within the 2-hour window
-        existing_reservation_start_time = reservation_datetime - datetime.timedelta(hours=2)
-        existing_reservation_end_time = reservation_datetime + datetime.timedelta(hours=2)
+        existing_reservation_start_time = reservation_datetime - timedelta(hours=2)
+        existing_reservation_end_time = reservation_datetime + timedelta(hours=2)
 
         # Check for existing reservations for both main and contact tables
         existing_reservations_main = Reservation_main.objects.filter(
@@ -462,7 +468,7 @@ def reservation_from_contact(request):
 
         # Get available tables in the selected language
         language_code = get_language()
-        available_tables_in_selected_language = [table_translations[language_code].get(table, table) for table in available_tables]
+        available_tables_in_selected_language = [table_translations.get(table, table) for table in available_tables]
 
         # Check if the table is in the available tables
         translated_table = all_tables.get(table, table)
@@ -472,23 +478,29 @@ def reservation_from_contact(request):
         
         occupied_tables = []
         for table_name in available_tables_in_selected_language:
-            translated_table_name = all_tables.get(table_name, table_name)  # Переклад назви стола за необхідності
+            translated_table_name = all_tables.get(table_name, table_name)
             table_obj = get_object_or_404(Tables, table_name=translated_table_name)
             if table_obj.available == 0 or \
-                    (table_obj.date == date and
-                        (table_obj.time >= (reservation_datetime - datetime.timedelta(hours=1)).time() and
-                        table_obj.time <= reservation_datetime.time())):
+                (table_obj.date == date and table_obj.time == time):
                 occupied_tables.append(table_name)
 
+        # Remove occupied tables from available list
         available_tables_in_selected_language = [
             table for table in available_tables_in_selected_language if table not in occupied_tables
         ]
+        def translate_table_name(table_name, target_language):
+            return table_translations[target_language].get(table_name, table_name)
 
-        # Перевірка, чи обраний стіл є в доступних столах
+        # Translate available tables to the selected language
+        translated_tables = [translate_table_name(table, language_code) for table in available_tables_in_selected_language]
+        print(translated_table)
+        print(translated_tables)
+        print(available_tables_in_selected_language)
+        # Check if the selected table is still available
         if translated_table not in available_tables_in_selected_language:
             return render(request, 'index.html', {
                 'table_is_not_available': True,
-                'available_tables': available_tables_in_selected_language
+                'available_tables': translated_tables
             })
         else:
             # Create a new reservation
