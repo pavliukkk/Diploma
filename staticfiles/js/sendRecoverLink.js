@@ -19,8 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
         return true; // Дозволяємо відправку форми, якщо всі дані коректні
     }
 
+    // Функція для автоматичного видалення пробілів на початку та в кінці тексту
+    function trimWhitespace(event) {
+        event.target.value = event.target.value.trim();
+    }
+
+    // Навішуємо обробник події input на поле email
+    emailInput.addEventListener('input', trimWhitespace);
+
     // Навішуємо обробник події на відправку форми
     form.addEventListener('submit', function (event) {
+        // Видаляємо пробіли з email перед перевіркою
+        emailInput.value = emailInput.value.trim();
+
         if (!validateForm()) {
             event.preventDefault(); // Блокуємо стандартну відправку форми
         }

@@ -10,25 +10,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const phoneNumberError = document.getElementById('phone_number_error');
     const surnameField = document.querySelector('input[name="surname"]');
     const nameField = document.querySelector('input[name="name"]');
-    
+
     differentPasswordsError.style.display = 'none';
     shortPasswordsError.style.display = 'none';
     weakPasswordError.style.display = 'none';
     fillError.style.display = 'none';
     phoneNumberError.style.display = 'none';
 
+    // Helper function to trim whitespace from input fields
+    function trimWhitespace(event) {
+        event.target.value = event.target.value.trim();
+    }
+
     surnameField.addEventListener('input', function(event) {
-        // Використовуємо регулярний вираз для перевірки наявності символів, які не є буквами
         if (/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/.test(event.target.value)) {
-            // Якщо введено не букву, встановлюємо значення поля на попередній текст
             event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
         }
     });
     
     nameField.addEventListener('input', function(event) {
-        // Використовуємо регулярний вираз для перевірки наявності символів, які не є буквами
         if (/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/.test(event.target.value)) {
-            // Якщо введено не букву, встановлюємо значення поля на попередній текст
             event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
         }
     });
@@ -78,14 +79,23 @@ document.addEventListener("DOMContentLoaded", function() {
         validatePassword();
     });
 
+    // Attach the trim function to all relevant input fields
+    const inputFields = [surnameField, nameField, phoneNumberField, document.querySelector('input[name="email"]')];
+    inputFields.forEach(field => {
+        field.addEventListener('input', trimWhitespace);
+    });
+
     signUpForm.addEventListener('submit', function(event) {
         event.preventDefault();
+
+        // Trim whitespace from all fields before validation
+        inputFields.forEach(field => field.value = field.value.trim());
 
         const phoneNumberValid = validatePhoneNumber();
         const password = passwordField.value;
         const confirmPassword = confirmPasswordField.value;
-        const surname = document.querySelector('input[name="surname"]').value;
-        const name = document.querySelector('input[name="name"]').value;
+        const surname = surnameField.value;
+        const name = nameField.value;
         const email = document.querySelector('input[name="email"]').value;
 
         if (!surname || !name || !email || !password || !confirmPassword || !phoneNumberValid) {

@@ -5212,6 +5212,12 @@ body.portfolio_body{
   #delete_reservation{
     padding: 40px 20px;
   }
+  #successfull_reservation .title{
+    font-size: 30px;
+  }
+  #successfull_reservation .title-big{
+    font-size: 28px;
+  }
 }
 @media (min-width: 1024px){
   #login, #successfull_reservation, #delete_reservation, #delete_account, #delete_account_confirm{

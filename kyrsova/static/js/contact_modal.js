@@ -18,15 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentTime = new Date().toLocaleTimeString('en-US', { hour12: false }).slice(0, -3);
 
     surnameField.addEventListener('input', function(event) {
-        if (/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/.test(event.target.value)) {
-            event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
-        }
+        event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
     });
 
     nameField.addEventListener('input', function(event) {
-        if (/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/.test(event.target.value)) {
-            event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
-        }
+        event.target.value = event.target.value.replace(/[^a-zA-Zа-яА-ЯіїєґІЇЄҐ]/g, '');
     });
 
     // Set the minimum date and initial date value
@@ -159,4 +155,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.addEventListener("click", closeOnOutsideClick);
+
+    // Trim whitespace from all text inputs on input event
+    reservationForm.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', function (event) {
+            event.target.value = event.target.value.trim();
+        });
+    });
+
+    // Trim whitespace before form submission
+    reservationForm.addEventListener('submit', function (event) {
+        reservationForm.querySelectorAll('input').forEach(input => {
+            input.value = input.value.trim();
+        });
+    });
 });

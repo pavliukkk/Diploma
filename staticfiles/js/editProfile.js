@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Блокування відправки форми при незаповнених полях або помилках
     form.addEventListener('submit', function(event) {
+        // Обрізаємо пробіли з полів перед валідацією
+        surnameInput.value = surnameInput.value.trim();
+        nameInput.value = nameInput.value.trim();
+        phoneNumberInput.value = phoneNumberInput.value.trim();
+
         if (!validateForm()) {
             event.preventDefault();
         }
@@ -58,5 +63,17 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             phoneNumberError.style.display = 'none';
         }
+    });
+
+    // Автоматичне видалення пробілів на початку і в кінці при введенні в поля surname та name
+    form.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', function() {
+            this.value = this.value.trim();
+        });
+    });
+
+    // Автоматичне видалення пробілів на початку і в кінці при введенні в поле phone_number
+    phoneNumberInput.addEventListener('input', function() {
+        this.value = this.value.trim();
     });
 });
