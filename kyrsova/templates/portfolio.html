@@ -79,7 +79,7 @@
                      {% elif CURRENT_LANGUAGE == "en" %}
                      <a href="{% url 'switch_language' 'uk' %}?next={{ request.path }}" title="Change to Ukrainian" class="language-hide"><img src="{% static 'img/locale/ukraine.png' %}"></a>
                      {% endif %}
-                     {% if user_profile.photo or request.user.is_authenticated %}
+                     {% if user_profile.photo and request.user.is_authenticated %}
                         <a href="{% url 'profile' username=user.username %}"><img src="{{ user_profile.photo.url }}" alt="Avatar" class="profile-hide" title="You are beautiful:)"></a>
                      {% elif not user_profile.photo and request.user.is_authenticated %}
                         <a href="{% url 'profile' username=user.username %}"><img src="{% static 'img/user_photo/user_photo.png' %}" alt="Default Avatar" class="profile-hide"></a>
